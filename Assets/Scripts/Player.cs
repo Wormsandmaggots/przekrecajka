@@ -5,18 +5,12 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private float health;
+    [SerializeField] private float maxHealth = 3;
+    private float health;
     
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        health = maxHealth;
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -25,6 +19,10 @@ public class Player : MonoBehaviour
         {
             Health -= doDamage.getDamage();
         }
+        else if(other.gameObject.TryGetComponent(out ICollectable collectable))
+        {
+            collectable.Collect(this);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -32,6 +30,10 @@ public class Player : MonoBehaviour
         if (other.TryGetComponent(out IDoDamage doDamage))
         {
             Health -= doDamage.getDamage();
+        }
+        else if(other.TryGetComponent(out ICollectable collectable))
+        {
+            collectable.Collect(this);
         }
     }
 
@@ -45,6 +47,11 @@ public class Player : MonoBehaviour
             if (health <= 0)
             {
                 Debug.Log("Player is dead");
+            }
+
+            if (health > 0)
+            {
+                health = maxHealth;
             }
         }
     }

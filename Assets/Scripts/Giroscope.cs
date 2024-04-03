@@ -1,19 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Giroscope : MonoBehaviour
 {
+    public static float GravityMultiplier = 1;
     [SerializeField] private float gravityPower = 2;
+    
     void Awake()
     {
         Input.gyro.enabled = true;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        Physics2D.gravity = Input.gyro.gravity * gravityPower;
+        Physics2D.gravity = Input.gyro.gravity * gravityPower * GravityMultiplier;
     }
     
     private static Quaternion GyroToUnity(Quaternion q)
