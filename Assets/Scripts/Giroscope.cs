@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Giroscope : MonoBehaviour
 {
+    [SerializeField] private float gravityPower = 2;
     void Awake()
     {
         Input.gyro.enabled = true;
@@ -12,8 +13,7 @@ public class Giroscope : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(Input.gyro.gravity);
-        Physics2D.gravity = Input.gyro.gravity;
+        Physics2D.gravity = Input.gyro.gravity * gravityPower;
     }
     
     private static Quaternion GyroToUnity(Quaternion q)
