@@ -41,3 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Walls
+    uniqueID: 662890241
+    locked: 0
+  - name: Obstacle
+    uniqueID: 3080333847
+    locked: 0
+  - name: Collectable
+    uniqueID: 3520872333
+    locked: 0
