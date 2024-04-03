@@ -23,6 +23,10 @@ public class Player : MonoBehaviour
         {
             collectable.Collect(this);
         }
+        else if(other.gameObject.TryGetComponent(out FollowChange followChange))
+        {
+            followChange.ChangeFollow();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -34,6 +38,10 @@ public class Player : MonoBehaviour
         else if(other.TryGetComponent(out ICollectable collectable))
         {
             collectable.Collect(this);
+        }
+        else if(other.gameObject.TryGetComponent(out FollowChange followChange))
+        {
+            followChange.ChangeFollow();
         }
     }
 
