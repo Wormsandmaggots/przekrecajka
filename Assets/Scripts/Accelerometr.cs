@@ -16,7 +16,6 @@ public class Accelerometr : MonoBehaviour
     private UnityEvent<Vector2, Vector2> onAccelerometrActivate = new UnityEvent<Vector2, Vector2>();
     private RigidbodyBoneHolder rbbh;
     private Vector2 initialAcceleration;
-    //private Accelerometer accelerometer;
 
     private void OnEnable()
     {
@@ -45,12 +44,12 @@ public class Accelerometr : MonoBehaviour
         acc.x = -acc.x;
         acc.y = -acc.y;
         
-        if (Mathf.Abs(acc.x) - Mathf.Abs(prevAcceleration.x) > activateAccelerometrThreshold)
+        if (Mathf.Abs(acc.x) - Mathf.Abs(prevAcceleration.x) < activateAccelerometrThreshold)
         {
             acc.x = 0;
         }
         
-        if (Mathf.Abs(acc.y) - Mathf.Abs(prevAcceleration.y) > activateAccelerometrThreshold)
+        if (Mathf.Abs(acc.y) - Mathf.Abs(prevAcceleration.y) < activateAccelerometrThreshold)
         {
             acc.y = 0;
         }
