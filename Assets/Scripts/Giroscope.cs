@@ -29,6 +29,8 @@ public class Giroscope : MonoBehaviour
     {
         // Quaternion q = GyroToUnity(Input.gyro.attitude);
         // Vector2 g = new Vector2(q.y + gravityOffset.x, -q.x + gravityOffset.y);
+        
+        Debug.Log(Input.gyro.gravity);
 
         Vector2 g = new Vector2(Input.gyro.gravity.x + Mathf.Abs(initialGyro.x) + gravityOffset.x, Input.gyro.gravity.y + Mathf.Abs(initialGyro.y) + gravityOffset.y);
         

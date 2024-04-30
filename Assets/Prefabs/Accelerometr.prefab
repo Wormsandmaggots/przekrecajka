@@ -46,6 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   accelerometrPower: {x: 1000, y: 1000}
   earthGravityValue: 9.8
-  activateAccelerometrThreshold: 1
+  activateAccelerometrThreshold: 2
   activeateDelay: 0.5
   smooth: 0.5
