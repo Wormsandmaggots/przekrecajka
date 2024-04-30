@@ -6,10 +6,12 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private float maxHealth = 3;
+    private Rigidbody2D rigidbody2d;
     private float health;
     
     private void Start()
     {
+        rigidbody2d = GetComponent<Rigidbody2D>();
         health = maxHealth;
     }
 
@@ -43,6 +45,11 @@ public class Player : MonoBehaviour
         {
             followChange.ChangeFollow();
         }
+    }
+
+    public void PushPlayer(Vector2 dir, Vector2 power)
+    {
+        rigidbody2d.AddForce(dir * power);
     }
 
     public float Health
