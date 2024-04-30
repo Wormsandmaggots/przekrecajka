@@ -16,7 +16,7 @@ public class Giroscope : MonoBehaviour
         // Quaternion q = GyroToUnity(Input.gyro.attitude);
         // Vector2 g = new Vector2(q.y + gravityOffset.x, -q.x + gravityOffset.y);
 
-        Vector2 g = new Vector2(Input.gyro.gravity.x, Input.gyro.gravity.y);
+        Vector2 g = new Vector2(Input.gyro.gravity.x + gravityOffset.x, Input.gyro.gravity.y + gravityOffset.y);
         
         Physics2D.gravity = g * gravityPower * GravityMultiplier;
     }

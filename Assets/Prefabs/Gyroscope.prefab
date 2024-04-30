@@ -45,4 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravityPower: {x: 20, y: 20}
-  gravityOffset: {x: 0, y: 0.3}
+  gravityOffset: {x: 0, y: 0}
