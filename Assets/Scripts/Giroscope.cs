@@ -22,7 +22,9 @@ public class Giroscope : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         
         Input.gyro.enabled = true;
-        initialGyro = Input.gyro.gravity;
+        //initialGyro = Input.gyro.gravity;
+        
+        Debug.Log(initialGyro);
     }
 
     void Update()
@@ -30,9 +32,20 @@ public class Giroscope : MonoBehaviour
         // Quaternion q = GyroToUnity(Input.gyro.attitude);
         // Vector2 g = new Vector2(q.y + gravityOffset.x, -q.x + gravityOffset.y);
         
-        Debug.Log(Input.gyro.gravity);
+        Vector2 g = Input.gyro.gravity;
+        
+        g += gravityOffset;
 
-        Vector2 g = new Vector2(Input.gyro.gravity.x + Mathf.Abs(initialGyro.x) + gravityOffset.x, Input.gyro.gravity.y + Mathf.Abs(initialGyro.y) + gravityOffset.y);
+        if (g.y >= -1)
+        {
+            g.y = Mathf.Abs(g.y);
+        }
+        else
+        {
+            g.y += 1;
+        }
+
+        //g += (Vector2)initialGyro;
         
         Physics2D.gravity = g * gravityPower * GravityMultiplier;
     }
