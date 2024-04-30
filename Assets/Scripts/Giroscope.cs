@@ -3,12 +3,24 @@ using UnityEngine;
 public class Giroscope : MonoBehaviour
 {
     public static float GravityMultiplier = 1;
+    private static Giroscope gyro = null;
     [SerializeField] private Vector2 gravityPower = new Vector2(2,2);
     [SerializeField] private Vector2 gravityOffset = new Vector2(0, 0);
     private Vector3 initialGyro;
     
     void Awake()
     {
+        if (gyro == null)
+        {
+            gyro = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        
+        DontDestroyOnLoad(gameObject);
+        
         Input.gyro.enabled = true;
         initialGyro = Input.gyro.gravity;
     }
