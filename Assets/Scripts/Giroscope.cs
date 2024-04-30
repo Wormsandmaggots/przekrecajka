@@ -12,7 +12,7 @@ public class Giroscope : MonoBehaviour
 
     void Update()
     {
-        Vector2 g = new Vector2(Input.gyro.gravity.x, Input.gyro.gravity.y);
+        Vector2 g = new Vector2(Input.gyro.gravity.x, -Input.gyro.gravity.z);
         
         Physics2D.gravity = g * gravityPower * GravityMultiplier;
     }
