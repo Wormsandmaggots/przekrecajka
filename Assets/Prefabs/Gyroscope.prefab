@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd0b02fb00c77274cbd2753e622e9aaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravityPower: {x: 8, y: 8}
-  gravityOffset: {x: 0, y: 0}
+  gravityPower: {x: -8, y: -8}
+  gravityOffset: {x: 0, y: -0.5}
