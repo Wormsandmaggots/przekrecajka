@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("dupa");
         if (other.TryGetComponent(out IDoDamage doDamage))
         {
             Health -= doDamage.getDamage();
