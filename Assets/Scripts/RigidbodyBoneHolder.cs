@@ -1,0 +1,20 @@
+using System;
+using UnityEngine;
+
+public class RigidbodyBoneHolder : MonoBehaviour
+{
+    private Rigidbody2D[] bonerb;
+
+    private void Awake()
+    {
+        bonerb = GetComponentsInChildren<Rigidbody2D>();
+    }
+
+    public void PushBones(Vector2 dir, Vector2 force)
+    {
+        foreach (var rb in bonerb)
+        {
+            rb.AddForce(dir * force);
+        }
+    }
+}

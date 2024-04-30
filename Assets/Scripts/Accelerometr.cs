@@ -14,42 +14,53 @@ public class Accelerometr : MonoBehaviour
     [SerializeField] private float smooth = 0.5f;
     private Vector2 prevAcceleration;
     private UnityEvent<Vector2, Vector2> onAccelerometrActivate = new UnityEvent<Vector2, Vector2>();
-    private Player player;
+    private RigidbodyBoneHolder rbbh;
     private Vector2 initialAcceleration;
     //private Accelerometer accelerometer;
 
     private void OnEnable()
     {
-        player = FindAnyObjectByType<Player>();
-        onAccelerometrActivate.AddListener(player.PushPlayer);
-        //InputSystem.EnableDevice(Accelerometer.current);
+        rbbh = FindAnyObjectByType<RigidbodyBoneHolder>();
+        onAccelerometrActivate.AddListener(rbbh.PushBones);
     }
 
     private void OnDisable()
     {
         onAccelerometrActivate.RemoveAllListeners();
-        //InputSystem.DisableDevice(Accelerometer.current);
     }
 
     private void Start()
     {
-        //accelerometer = Accelerometer.current;
         initialAcceleration = Input.acceleration;
     }
 
     private void Update()
     {
-        //Vector2 acc = new Vector2(Input.acceleration.x, -Input.acceleration.y);
+        Vector2 acc = new Vector2(Input.acceleration.x - initialAcceleration.x, Input.acceleration.y - initialAcceleration.y);
         //Vector2 acc = new Vector2(Input.gyro.userAcceleration.x - initialAcceleration.x, Input.gyro.userAcceleration.y - initialAcceleration.y);
 
-        Vector2 acc = Vector2.Lerp(prevAcceleration, Input.acceleration - (Vector3)initialAcceleration, Time.deltaTime/smooth);
+        //Vector2 acc = Vector2.Lerp(prevAcceleration, Input.acceleration - (Vector3)initialAcceleration, Time.deltaTime/smooth);
         //acc.y += earthGravityValue * 0.1f;
+
+        acc.x = -acc.x;
+        acc.y = -acc.y;
+        
+        if (Mathf.Abs(acc.x) - Mathf.Abs(prevAcceleration.x) > activateAccelerometrThreshold)
+        {
+            acc.x = 0;
+        }
+        
+        if (Mathf.Abs(acc.y) - Mathf.Abs(prevAcceleration.y) > activateAccelerometrThreshold)
+        {
+            acc.y = 0;
+        }
         
         if (!Active && 
             Vector2.Distance(prevAcceleration, acc) > activateAccelerometrThreshold)
         {
-            Debug.Log("current = " + acc + "\n prev = " + prevAcceleration); 
-            StartCoroutine(ActivateAccelerometr((-acc).normalized));
+            //acc.x = -acc.x;
+            Debug.Log(acc);
+            StartCoroutine(ActivateAccelerometr((acc).normalized));
         }
 
         prevAcceleration = acc;

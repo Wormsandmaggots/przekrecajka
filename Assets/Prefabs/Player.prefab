@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 1102053457520498902}
   m_Layer: 0
   m_Name: bone_4
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,7 +98,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!231 &4771675031987964351
 SpringJoint2D:
@@ -201,7 +201,7 @@ GameObject:
   - component: {fileID: 8996778834899597434}
   m_Layer: 0
   m_Name: bone_10
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -282,7 +282,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!231 &1876364941912808749
 SpringJoint2D:
@@ -385,7 +385,7 @@ GameObject:
   - component: {fileID: 7677200902044653748}
   m_Layer: 0
   m_Name: bone_5
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -466,7 +466,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!231 &6138454187179984161
 SpringJoint2D:
@@ -569,7 +569,7 @@ GameObject:
   - component: {fileID: 5225997496442078032}
   m_Layer: 0
   m_Name: bone_13
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -650,7 +650,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!231 &3790803137366702896
 SpringJoint2D:
@@ -750,7 +750,7 @@ GameObject:
   - component: {fileID: 4480516824488962194}
   m_Layer: 0
   m_Name: PlayerMainBone(PlayerComponentsGoesHere)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -831,7 +831,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!114 &4480516824488962194
 MonoBehaviour:
@@ -863,7 +863,7 @@ GameObject:
   - component: {fileID: 172131080725416985}
   m_Layer: 0
   m_Name: bone_9
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -944,7 +944,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!231 &8875807270735451100
 SpringJoint2D:
@@ -1047,7 +1047,7 @@ GameObject:
   - component: {fileID: 3001735435074287672}
   m_Layer: 0
   m_Name: bone_12
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1128,7 +1128,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!231 &7593409533973593723
 SpringJoint2D:
@@ -1231,7 +1231,7 @@ GameObject:
   - component: {fileID: 163329043506236931}
   m_Layer: 0
   m_Name: bone_11
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1312,7 +1312,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!231 &7336944541916979578
 SpringJoint2D:
@@ -1415,7 +1415,7 @@ GameObject:
   - component: {fileID: 30879808955839375}
   m_Layer: 0
   m_Name: bone_1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1496,7 +1496,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!231 &1548607743466755285
 SpringJoint2D:
@@ -1593,9 +1593,10 @@ GameObject:
   - component: {fileID: 6185122565103566958}
   - component: {fileID: 4479488605252686230}
   - component: {fileID: 5301127818761537990}
+  - component: {fileID: 2320937791236051420}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1718,6 +1719,18 @@ MonoBehaviour:
     m_Extent: {x: 0.50931704, y: 0.51400006, z: 0}
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
+--- !u!114 &2320937791236051420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5729431769180238189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7937806257b64e17b57ef007105dd47e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6197416229492470498
 GameObject:
   m_ObjectHideFlags: 0
@@ -1735,7 +1748,7 @@ GameObject:
   - component: {fileID: 4942252000523566903}
   m_Layer: 0
   m_Name: bone_8
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1816,7 +1829,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!231 &1717108229155898330
 SpringJoint2D:
@@ -1919,7 +1932,7 @@ GameObject:
   - component: {fileID: 101091318377726821}
   m_Layer: 0
   m_Name: bone_3
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2000,7 +2013,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!231 &3103665853000080091
 SpringJoint2D:
@@ -2103,7 +2116,7 @@ GameObject:
   - component: {fileID: 1064527718053491798}
   m_Layer: 0
   m_Name: bone_14
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2184,7 +2197,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!231 &3877742649985102096
 SpringJoint2D:
@@ -2287,7 +2300,7 @@ GameObject:
   - component: {fileID: 1946676694107221723}
   m_Layer: 0
   m_Name: bone_2
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2368,7 +2381,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!231 &3202790217025545221
 SpringJoint2D:
@@ -2471,7 +2484,7 @@ GameObject:
   - component: {fileID: 58993709005325897}
   m_Layer: 0
   m_Name: bone_7
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2552,7 +2565,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!231 &1722799913094887523
 SpringJoint2D:
@@ -2655,7 +2668,7 @@ GameObject:
   - component: {fileID: 6306872984051781238}
   m_Layer: 0
   m_Name: bone_6
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2736,7 +2749,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!231 &4318975147754771860
 SpringJoint2D:
