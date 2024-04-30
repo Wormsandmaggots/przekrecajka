@@ -3,7 +3,8 @@ using UnityEngine;
 public class Giroscope : MonoBehaviour
 {
     public static float GravityMultiplier = 1;
-    [SerializeField] private float gravityPower = 2;
+    [SerializeField] private Vector2 gravityPower = new Vector2(2,2);
+    [SerializeField] private Vector2 gravityOffset = new Vector2(0, 0);
     
     void Awake()
     {
@@ -12,7 +13,9 @@ public class Giroscope : MonoBehaviour
 
     void Update()
     {
-        Vector2 g = new Vector2(Input.gyro.gravity.x, -Input.gyro.gravity.z);
+        //Vector2 g = new Vector2(Input.gyro.gravity.x, -Input.gyro.gravity.z);
+        Quaternion q = GyroToUnity(Input.gyro.attitude);
+        Vector2 g = new Vector2(q.y + gravityOffset.x, -q.x + gravityOffset.y);
         
         Physics2D.gravity = g * gravityPower * GravityMultiplier;
     }

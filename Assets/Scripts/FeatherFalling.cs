@@ -15,13 +15,11 @@ public class FeatherFalling : MonoBehaviour, ICollectable
 
     private IEnumerator GravityTimer()
     {
-        Debug.Log("Feather falling start");
         if(Giroscope.GravityMultiplier - gravityMultiplierSubtract <= 0.1f)
             yield break;
 
         Giroscope.GravityMultiplier -= gravityMultiplierSubtract;
         yield return new WaitForSeconds(timer);
         Giroscope.GravityMultiplier += gravityMultiplierSubtract;
-        Debug.Log("Feather falling stop");
     }
 }
