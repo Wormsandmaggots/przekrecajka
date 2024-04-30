@@ -107,6 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   what: {fileID: 0}
+  cameraSpeed: 8
 --- !u!114 &7287123682436294000
 MonoBehaviour:
   m_ObjectHideFlags: 0

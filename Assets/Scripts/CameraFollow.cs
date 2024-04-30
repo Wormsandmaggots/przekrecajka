@@ -8,6 +8,7 @@ public class CameraFollow : MonoBehaviour
     public static bool FollowX = true;
     public static bool FollowY = true;
     [SerializeField] private Transform what;
+    [SerializeField] private float cameraSpeed = 2;
 
     private void LateUpdate()
     {
@@ -26,6 +27,6 @@ public class CameraFollow : MonoBehaviour
             pos.y = cameraPos.y;
         }
         
-        transform.position = pos;
+        transform.position = Vector3.Lerp(cameraPos, pos, Time.deltaTime * cameraSpeed);
     }
 }
