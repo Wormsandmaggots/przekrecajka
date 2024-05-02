@@ -8,6 +8,11 @@ public class RigidbodyBoneHolder : MonoBehaviour
     private void Awake()
     {
         bonerb = GetComponentsInChildren<Rigidbody2D>();
+
+        // foreach (var bone in bonerb)
+        // {
+        //     bone.gameObject.AddComponent<BoneFunctionality>();
+        // }
     }
 
     public void PushBones(Vector2 dir, Vector2 force)

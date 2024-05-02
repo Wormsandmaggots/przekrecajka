@@ -5,51 +5,61 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] private Vector2 pushPower = new Vector2(50, 50);
     [SerializeField] private float maxHealth = 3;
-    private Rigidbody2D rigidbody2d;
+    [SerializeField] private float immunityTime = 0.5f;
+    private bool immune = false;
+    private RigidbodyBoneHolder rbh;
     private float health;
     
     private void Start()
     {
-        rigidbody2d = GetComponent<Rigidbody2D>();
+        rbh = GetComponent<RigidbodyBoneHolder>();
         health = maxHealth;
     }
-
-    private void OnCollisionEnter2D(Collision2D other)
+    
+    public void TriggerEnter(Collider2D c2d, PlayerMainBone pmb)
     {
-        if (other.gameObject.TryGetComponent(out IDoDamage doDamage))
+        if (c2d.TryGetComponent(out IDoDamage doDamage))
         {
-            Health -= doDamage.getDamage();
+            if (!immune)
+            {
+                StartCoroutine(Immune());
+                Health -= doDamage.getDamage();
+            }
+            
+            Vector2 dir = pmb.transform.position - c2d.transform.position;
+            dir = dir.normalized;
+            rbh.PushBones(dir, pushPower);
         }
-        else if(other.gameObject.TryGetComponent(out ICollectable collectable))
+        else if(c2d.TryGetComponent(out ICollectable collectable))
         {
             collectable.Collect(this);
         }
-        else if(other.gameObject.TryGetComponent(out FollowChange followChange))
+        else if(c2d.gameObject.TryGetComponent(out FollowChange followChange))
         {
             followChange.ChangeFollow();
         }
     }
-
-    private void OnTriggerEnter2D(Collider2D other)
+    
+    public void CollisionEnter(Collider2D c2d)
     {
-        if (other.TryGetComponent(out IDoDamage doDamage))
+        if (c2d.gameObject.TryGetComponent(out IDoDamage doDamage))
         {
             Health -= doDamage.getDamage();
-        }
-        else if(other.TryGetComponent(out ICollectable collectable))
-        {
-            collectable.Collect(this);
-        }
-        else if(other.gameObject.TryGetComponent(out FollowChange followChange))
-        {
-            followChange.ChangeFollow();
+            Vector2 dir = transform.position - c2d.transform.position;
+            dir = dir.normalized;
+            rbh.PushBones(dir, pushPower);
         }
     }
 
-    public void PushPlayer(Vector2 dir, Vector2 power)
+    private IEnumerator Immune()
     {
-        rigidbody2d.AddForce(dir * power);
+        immune = true;
+
+        yield return new WaitForSeconds(immunityTime);
+
+        immune = false;
     }
 
     public float Health
@@ -64,10 +74,40 @@ public class Player : MonoBehaviour
                 Debug.Log("Player is dead");
             }
 
-            if (health > 0)
+            if (health > maxHealth)
             {
                 health = maxHealth;
             }
         }
     }
 }
+
+// public void CollisionEnter(BoneFunctionality bf, Collider2D c2d)
+// {
+//     if (c2d.gameObject.TryGetComponent(out IDoDamage doDamage))
+//     {
+//         Health -= doDamage.getDamage();
+//         Vector2 dir = transform.position - c2d.transform.position;
+//         dir = dir.normalized;
+//         rbh.PushBones(dir, pushPower);
+//     }
+// }
+//
+// public void TriggerEnter(BoneFunctionality bf, Collider2D c2d)
+// {
+//     if (c2d.TryGetComponent(out IDoDamage doDamage))
+//     {
+//         Health -= doDamage.getDamage();
+//         Vector2 dir = transform.position - c2d.transform.position;
+//         dir = dir.normalized;
+//         rbh.PushBones(dir, pushPower);
+//     }
+//     else if(c2d.TryGetComponent(out ICollectable collectable))
+//     {
+//         collectable.Collect(this);
+//     }
+//     else if(c2d.gameObject.TryGetComponent(out FollowChange followChange))
+//     {
+//         followChange.ChangeFollow();
+//     }
+// }
