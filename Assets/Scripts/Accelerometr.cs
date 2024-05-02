@@ -3,24 +3,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 public class Accelerometr : MonoBehaviour
 {
     private static bool Active = false;
-    [SerializeField] private Vector2 accelerometrPower = new Vector2(1,1);
-    [SerializeField] private float earthGravityValue = 9.8f;
+    [SerializeField] private Vector2 accelerometrPower = new Vector2(1000,1000);
     [SerializeField] private float activateAccelerometrThreshold = 1f;
+    [SerializeField] private Vector2 activateDirectionThreshold = new Vector2(1, 1);
+    [SerializeField] private Vector2 unintentionalDirectionActivationGapMultiplier = new Vector2(1.5f, 1.5f);
+    [SerializeField] private Vector2 minimalAccelerationThreshold = new Vector2(1, 1);
     [SerializeField] private float activeateDelay = 0.5f;
-    [SerializeField] private float smooth = 0.5f;
+    private float earthGravityValue = 9.807f;
     private Vector2 prevAcceleration;
     private UnityEvent<Vector2, Vector2> onAccelerometrActivate = new UnityEvent<Vector2, Vector2>();
-    private RigidbodyBoneHolder rbbh;
     private Vector2 initialAcceleration;
 
     private void OnEnable()
     {
-        rbbh = FindAnyObjectByType<RigidbodyBoneHolder>();
-        onAccelerometrActivate.AddListener(rbbh.PushBones);
+        onAccelerometrActivate.AddListener(FindAnyObjectByType<RigidbodyBoneHolder>().PushBones);
+        Input.compensateSensors = true;
     }
 
     private void OnDisable()
@@ -28,47 +30,62 @@ public class Accelerometr : MonoBehaviour
         onAccelerometrActivate.RemoveAllListeners();
     }
 
-    private void Start()
-    {
-        initialAcceleration = Input.acceleration;
-    }
-
     private void Update()
     {
-        Vector2 acc = new Vector2(Input.acceleration.x - initialAcceleration.x, Input.acceleration.y - initialAcceleration.y);
-        //Vector2 acc = new Vector2(Input.gyro.userAcceleration.x - initialAcceleration.x, Input.gyro.userAcceleration.y - initialAcceleration.y);
+        float g = earthGravityValue * 0.1f;
+        Vector3 gyro = Input.gyro.gravity;
+        Vector2 acc = new Vector2(Input.acceleration.x, Input.acceleration.y);
+        
+        Vector2 unchangedAcc = Vector2.zero;
 
-        //Vector2 acc = Vector2.Lerp(prevAcceleration, Input.acceleration - (Vector3)initialAcceleration, Time.deltaTime/smooth);
-        //acc.y += earthGravityValue * 0.1f;
-
+        if (gyro.y < 0)
+        {
+            acc.y += g;
+        }
+        
         acc.x = -acc.x;
         acc.y = -acc.y;
         
-        if (Mathf.Abs(acc.x) - Mathf.Abs(prevAcceleration.x) < activateAccelerometrThreshold)
+        unchangedAcc = acc;
+        
+        if (Mathf.Abs(acc.x) <= minimalAccelerationThreshold.x ||
+            Mathf.Abs(acc.x + prevAcceleration.x) <= activateDirectionThreshold.x)
         {
             acc.x = 0;
         }
         
-        if (Mathf.Abs(acc.y) - Mathf.Abs(prevAcceleration.y) < activateAccelerometrThreshold)
+        if (Mathf.Abs(acc.y) <= minimalAccelerationThreshold.y ||
+            Mathf.Abs(acc.y + prevAcceleration.y) <= activateDirectionThreshold.y)
         {
             acc.y = 0;
         }
         
-        if (!Active && 
-            Vector2.Distance(prevAcceleration, acc) > activateAccelerometrThreshold)
+        if (Mathf.Abs(acc.x) * unintentionalDirectionActivationGapMultiplier.x < Mathf.Abs(acc.y))
         {
-            //acc.x = -acc.x;
-            Debug.Log(acc);
-            StartCoroutine(ActivateAccelerometr((acc).normalized));
+            acc.x = 0;
+        }
+        
+        if (Mathf.Abs(acc.y) * unintentionalDirectionActivationGapMultiplier.y < Mathf.Abs(acc.x))
+        {
+            acc.y = 0;
         }
 
-        prevAcceleration = acc;
+        if (!Active && acc.magnitude >= activateAccelerometrThreshold)
+        {
+            StartCoroutine(ActivateAccelerometr(acc.normalized));
+            //prevAcceleration = Vector2.zero;
+        }
+        else
+        {
+            prevAcceleration = unchangedAcc;   
+        }
     }
 
     private IEnumerator ActivateAccelerometr(Vector2 dir)
     {
         Active = true;
         onAccelerometrActivate.Invoke(dir, accelerometrPower);
+        
         yield return new WaitForSeconds(activeateDelay);
 
         Active = false;
