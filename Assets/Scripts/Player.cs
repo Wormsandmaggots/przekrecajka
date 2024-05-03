@@ -36,9 +36,27 @@ public class Player : MonoBehaviour
         {
             collectable.Collect(this);
         }
-        else if(c2d.gameObject.TryGetComponent(out FollowChange followChange))
+        else if(c2d.TryGetComponent(out FollowChange followChange))
         {
             followChange.ChangeFollow();
+        }
+        else if(c2d.gameObject.TryGetComponent(out Accelerator acc))
+        {
+            if (acc.GetAccelerationType() == AcceleratorType.ACCELERATOR)
+            {
+                rbh.PushBones(acc.GetDirection(), acc.GetForce());
+            }
+        }
+    }
+
+    public void TriggerStay(Collider2D c2d, PlayerMainBone pmb)
+    {
+        if(c2d.gameObject.TryGetComponent(out Accelerator acc))
+        {
+            if (acc.GetAccelerationType() == AcceleratorType.WIND)
+            {
+                rbh.PushBones(acc.GetDirection(), acc.GetForce());
+            }
         }
     }
     

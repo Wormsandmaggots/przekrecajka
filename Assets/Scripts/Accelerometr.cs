@@ -42,6 +42,10 @@ public class Accelerometr : MonoBehaviour
         {
             acc.y += g;
         }
+        else
+        {
+            acc.y -= g;
+        }
         
         acc.x = -acc.x;
         acc.y = -acc.y;
