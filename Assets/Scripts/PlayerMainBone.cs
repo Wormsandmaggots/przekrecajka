@@ -6,17 +6,20 @@ public class PlayerMainBone : MonoBehaviour
 {
     private UnityEvent<Collider2D, PlayerMainBone> onTriggerEnter = new UnityEvent<Collider2D, PlayerMainBone>();
     private UnityEvent<Collider2D, PlayerMainBone> onTriggerStay = new UnityEvent<Collider2D, PlayerMainBone>();
+    public UnityEvent<Vector2, Vector2> pushBones = new UnityEvent<Vector2, Vector2>();
 
     private void OnEnable()
     {
         Player p = GetComponentInParent<Player>();
         onTriggerEnter.AddListener(p.TriggerEnter);
         onTriggerStay.AddListener(p.TriggerStay);
+        pushBones.AddListener(p.PushBones);
     }
 
     private void OnDisable()
     {
         onTriggerEnter.RemoveAllListeners();
+        onTriggerStay.RemoveAllListeners();
     }
 
     private void OnTriggerEnter2D(Collider2D other)

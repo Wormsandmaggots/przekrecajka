@@ -58,6 +58,18 @@ public class Player : MonoBehaviour
                 rbh.PushBones(acc.GetDirection(), acc.GetForce());
             }
         }
+        else if(c2d.TryGetComponent(out Vaccum v))
+        {
+            Vector2 distance = c2d.transform.position - pmb.transform.position;
+            Vector2 dir = distance.normalized;
+            
+            Vector2 vp;
+            
+            vp.x = Mathf.Lerp(dir.x, v.GetPower().x, distance.magnitude / v.GetSmooth().x);
+            vp.y = Mathf.Lerp(dir.y, v.GetPower().y, distance.magnitude / v.GetSmooth().y);
+            
+            PushBones(dir, vp);
+        }
     }
     
     public void CollisionEnter(Collider2D c2d)
@@ -69,6 +81,11 @@ public class Player : MonoBehaviour
             dir = dir.normalized;
             rbh.PushBones(dir, pushPower);
         }
+    }
+
+    public void PushBones(Vector2 dir, Vector2 power)
+    {
+        rbh.PushBones(dir, power);
     }
 
     private IEnumerator Immune()
