@@ -9,7 +9,6 @@ public class Heart : MonoBehaviour, ICollectable
     public void Collect(Player player)
     {
         player.Health += healValue;
-        Debug.Log("Heal");
         Destroy(gameObject);
     }
 }

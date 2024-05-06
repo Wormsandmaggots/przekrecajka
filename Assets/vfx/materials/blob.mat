@@ -72,7 +72,9 @@ Material:
     m_Floats:
     - _DistortionSpeed: 1
     - _EnableExternalAlpha: 0
+    - _FresnelPower: 3.45
     - _NoiseRotationScale: 2
+    - _ParticleAge: 0
     - _RotationSpeed: 10
     - _Time: 1
     m_Colors:

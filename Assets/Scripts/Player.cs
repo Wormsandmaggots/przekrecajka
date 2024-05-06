@@ -8,14 +8,15 @@ public class Player : MonoBehaviour
     [SerializeField] private Vector2 pushPower = new Vector2(50, 50);
     [SerializeField] private float maxHealth = 3;
     [SerializeField] private float immunityTime = 0.5f;
+    [SerializeField] private float sizeMultiplier = 1.1f;
+    private float health;
     private bool immune = false;
     private RigidbodyBoneHolder rbh;
-    private float health;
     
     private void Start()
     {
         rbh = GetComponent<RigidbodyBoneHolder>();
-        health = maxHealth;
+        Health = maxHealth;
     }
     
     public void TriggerEnter(Collider2D c2d, PlayerMainBone pmb)
@@ -113,6 +114,8 @@ public class Player : MonoBehaviour
             {
                 health = maxHealth;
             }
+            
+            transform.localScale = Vector3.one + Vector3.one * health/10f * sizeMultiplier;  
         }
     }
 }
