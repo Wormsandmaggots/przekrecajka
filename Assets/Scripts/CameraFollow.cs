@@ -7,8 +7,10 @@ public class CameraFollow : MonoBehaviour
 {
     public static bool FollowX = true;
     public static bool FollowY = true;
+    [SerializeField] private float e = 0.01f;
     [SerializeField] private Transform what;
     [SerializeField] private float cameraSpeed = 2;
+    private Vector3 currentVelocity;
 
     private void LateUpdate()
     {
@@ -16,7 +18,7 @@ public class CameraFollow : MonoBehaviour
         Vector3 cameraPos = transform.position;
         
         pos.z = cameraPos.z;
-
+        
         if (!FollowX)
         {
             pos.x = cameraPos.x;
@@ -26,7 +28,12 @@ public class CameraFollow : MonoBehaviour
         {
             pos.y = cameraPos.y;
         }
-        
-        transform.position = Vector3.Lerp(cameraPos, pos, Time.deltaTime * cameraSpeed);
+
+        if (Vector3.Distance(cameraPos, pos) >= e)
+        {
+            transform.position = Vector3.SmoothDamp(cameraPos, pos, ref currentVelocity, Time.deltaTime);
+            //transform.position = Vector3.Lerp(cameraPos, pos, Time.deltaTime * cameraSpeed);
+            //transform.position = pos;
+        }
     }
 }

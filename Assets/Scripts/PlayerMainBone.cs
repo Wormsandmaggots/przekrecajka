@@ -6,7 +6,7 @@ public class PlayerMainBone : MonoBehaviour
 {
     private UnityEvent<Collider2D, PlayerMainBone> onTriggerEnter = new UnityEvent<Collider2D, PlayerMainBone>();
     private UnityEvent<Collider2D, PlayerMainBone> onTriggerStay = new UnityEvent<Collider2D, PlayerMainBone>();
-    public UnityEvent<Vector2, Vector2> pushBones = new UnityEvent<Vector2, Vector2>();
+    private UnityEvent<Vector2, Vector2> pushBones = new UnityEvent<Vector2, Vector2>();
 
     private void OnEnable()
     {

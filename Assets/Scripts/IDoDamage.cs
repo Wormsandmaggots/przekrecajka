@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IDoDamage
 {
-    float getDamage();
+    int getDamage();
 }

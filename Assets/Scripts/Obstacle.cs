@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour, IDoDamage
 {
-    [SerializeField] private float damage;
+    [SerializeField] private int damage;
     
-    public float getDamage()
+    public int getDamage()
     {
         return damage;
     }

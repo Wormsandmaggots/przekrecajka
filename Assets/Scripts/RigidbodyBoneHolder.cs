@@ -22,4 +22,12 @@ public class RigidbodyBoneHolder : MonoBehaviour
             rb.AddForce(dir * force);
         }
     }
+
+    public void SetGravity(float gravityScale)
+    {
+        foreach (Rigidbody2D rb in bonerb)
+        {
+            rb.gravityScale = gravityScale;
+        }
+    }
 }

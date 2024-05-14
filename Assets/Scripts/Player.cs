@@ -1,20 +1,24 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] private Vector2 pushPower = new Vector2(50, 50);
-    [SerializeField] private float maxHealth = 3;
+    [SerializeField] private int maxHealth = 3;
     [SerializeField] private float immunityTime = 0.5f;
     [SerializeField] private float sizeMultiplier = 1.1f;
-    private float health;
+    private int health;
     private bool immune = false;
     private RigidbodyBoneHolder rbh;
+    private PlayerMainBone playerMainBone;
     
     private void Start()
     {
+        playerMainBone = GetComponentInChildren<PlayerMainBone>();
         rbh = GetComponent<RigidbodyBoneHolder>();
         Health = maxHealth;
     }
@@ -32,6 +36,13 @@ public class Player : MonoBehaviour
             Vector2 dir = pmb.transform.position - c2d.transform.position;
             dir = dir.normalized;
             rbh.PushBones(dir, pushPower);
+            
+            Rigidbody2D heartrb = Instantiate(Settings.heart, playerMainBone.transform.position, quaternion.identity)
+                .GetComponent<Rigidbody2D>();
+
+            Vector2 random = new Vector2(Random.Range(0, 1), Random.Range(0, 1)).normalized;
+            
+            heartrb.AddForce(random * pushPower);
         }
         else if(c2d.TryGetComponent(out ICollectable collectable))
         {
@@ -98,7 +109,7 @@ public class Player : MonoBehaviour
         immune = false;
     }
 
-    public float Health
+    public int Health
     {
         get => health;
         set
@@ -114,6 +125,8 @@ public class Player : MonoBehaviour
             {
                 health = maxHealth;
             }
+            
+            HoleManager.OnHealthChange.Invoke(health);
             
             transform.localScale = Vector3.one + Vector3.one * health/10f * sizeMultiplier;  
         }
