@@ -38,9 +38,9 @@ MonoBehaviour:
   uiBounds:
     serializedVersion: 2
     x: -477
-    y: -1623
-    width: 1702
-    height: 2293
+    y: -1621
+    width: 1703
+    height: 2275
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d4c867f6b72b714dbb5fd1780afe208, type: 3}
-  m_Name: New VFX
+  m_Name: BlackDots
   m_EditorClassIdentifier: 
   m_UIIgnoredErrors: []
   m_Parent: {fileID: 0}
@@ -289,7 +289,7 @@ VisualEffectResource:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: New VFX
+  m_Name: BlackDots
   m_Graph: {fileID: 114350483966674976}
   m_Infos:
     m_RendererSettings:
@@ -5436,7 +5436,7 @@ MonoBehaviour:
     linkedSlots:
     - outputSlot: {fileID: 8926484042661615091}
       inputSlot: {fileID: 8926484042661614611}
-    position: {x: 552.4348, y: -1435.6522}
+    position: {x: 552, y: -1436.6666}
     expandedSlots: []
     expanded: 0
 --- !u!114 &8926484042661615091
@@ -5668,7 +5668,7 @@ MonoBehaviour:
     linkedSlots:
     - outputSlot: {fileID: 8926484042661615104}
       inputSlot: {fileID: 8926484042661614813}
-    position: {x: 448, y: -575.2}
+    position: {x: 441.33334, y: -550}
     expandedSlots: []
     expanded: 0
 --- !u!114 &8926484042661615104
