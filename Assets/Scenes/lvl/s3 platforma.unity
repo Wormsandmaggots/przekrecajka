@@ -2680,10 +2680,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 199491437623481354, guid: f8cfa8d120f835749996a784e0ee3598, type: 3}
-      propertyPath: gravityOffset.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2743838458790548191, guid: f8cfa8d120f835749996a784e0ee3598, type: 3}
       propertyPath: m_Name
       value: Gyroscope
