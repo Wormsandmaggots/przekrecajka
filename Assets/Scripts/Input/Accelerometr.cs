@@ -38,7 +38,7 @@ public class Accelerometr : MonoBehaviour
         
         Vector2 unchangedAcc = Vector2.zero;
 
-        if (gyro.y < 0)
+        if (gyro.y <= 0)
         {
             acc.y += g;
         }
@@ -52,14 +52,16 @@ public class Accelerometr : MonoBehaviour
         
         unchangedAcc = acc;
         
+        Debug.Log(acc);
+        
         if (Mathf.Abs(acc.x) <= minimalAccelerationThreshold.x ||
-            Mathf.Abs(acc.x + prevAcceleration.x) <= activateDirectionThreshold.x)
+            Mathf.Abs(acc.x) <= activateDirectionThreshold.x)
         {
             acc.x = 0;
         }
         
         if (Mathf.Abs(acc.y) <= minimalAccelerationThreshold.y ||
-            Mathf.Abs(acc.y + prevAcceleration.y) <= activateDirectionThreshold.y)
+            Mathf.Abs(acc.y) <= activateDirectionThreshold.y)
         {
             acc.y = 0;
         }
