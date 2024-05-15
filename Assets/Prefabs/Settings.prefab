@@ -48,6 +48,9 @@ MonoBehaviour:
   platformLayer:
     serializedVersion: 2
     m_Bits: 128
+  bubbleHolderLayer:
+    serializedVersion: 2
+    m_Bits: 512
   heartPrefab: {fileID: 410208174062046430, guid: d0baca0599d5c5c41b32ff85be6f914c, type: 3}
 --- !u!114 &5175743683219414225
 MonoBehaviour:
