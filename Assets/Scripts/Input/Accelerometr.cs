@@ -14,8 +14,10 @@ public class Accelerometr : MonoBehaviour
     [SerializeField] private Vector2 unintentionalDirectionActivationGapMultiplier = new Vector2(1.5f, 1.5f);
     [SerializeField] private Vector2 minimalAccelerationThreshold = new Vector2(1, 1);
     [SerializeField] private float activeateDelay = 0.5f;
+    [SerializeField] private Vector2 gyroDelta = new Vector2(1f, 1.5f);
     private float earthGravityValue = 9.807f;
     private Vector2 prevAcceleration;
+    private Vector2 prevGyro;
     private UnityEvent<Vector2, Vector2> onAccelerometrActivate = new UnityEvent<Vector2, Vector2>();
     private Vector2 initialAcceleration;
 
@@ -34,6 +36,7 @@ public class Accelerometr : MonoBehaviour
     {
         float g = earthGravityValue * 0.1f;
         Vector3 gyro = Input.gyro.gravity;
+        Vector3 gyroRate = Input.gyro.rotationRate;
         Vector2 acc = new Vector2(Input.acceleration.x, Input.acceleration.y);
         
         Vector2 unchangedAcc = Vector2.zero;
@@ -41,18 +44,23 @@ public class Accelerometr : MonoBehaviour
         if (gyro.y <= 0)
         {
             acc.y += g;
+            acc.y = -acc.y;
         }
         else
         {
             acc.y -= g;
+            acc.y = -acc.y;
         }
+        // else
+        // {
+        //     acc.y -= g;
+        //     Debug.Log("dupa");
+        // }
         
         acc.x = -acc.x;
-        acc.y = -acc.y;
         
         unchangedAcc = acc;
         
-        Debug.Log(acc);
         
         if (Mathf.Abs(acc.x) <= minimalAccelerationThreshold.x ||
             Mathf.Abs(acc.x) <= activateDirectionThreshold.x)
@@ -76,6 +84,18 @@ public class Accelerometr : MonoBehaviour
             acc.y = 0;
         }
 
+        if (Mathf.Abs(gyroRate.x) > gyroDelta.y)
+        {
+            acc.y = 0;
+        }
+
+        if (Mathf.Abs(gyroRate.y) > gyroDelta.x)
+        {
+            acc.x = 0;
+        }
+        
+        Debug.Log(gyroRate.y);
+
         if (!Active && acc.magnitude >= activateAccelerometrThreshold)
         {
             StartCoroutine(ActivateAccelerometr(acc.normalized));
@@ -85,6 +105,8 @@ public class Accelerometr : MonoBehaviour
         {
             prevAcceleration = unchangedAcc;   
         }
+
+        prevGyro = gyro;
     }
 
     private IEnumerator ActivateAccelerometr(Vector2 dir)
