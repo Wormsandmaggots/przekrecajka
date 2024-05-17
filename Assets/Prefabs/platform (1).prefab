@@ -97,7 +97,6 @@ GameObject:
   - component: {fileID: 7696196240240836713}
   - component: {fileID: 4999639838357251960}
   - component: {fileID: 249657619713392007}
-  - component: {fileID: 2127556066516187927}
   m_Layer: 0
   m_Name: Square (11)
   m_TagString: Untagged
@@ -220,43 +219,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 0.6}
   m_EdgeRadius: 0.2
---- !u!70 &2127556066516187927
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5582416634685798274}
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0.49729455, y: -0.002800107}
-  m_Size: {x: 0.1336019, y: 1.0039809}
-  m_Direction: 0
 --- !u!1 &6060936783676639909
 GameObject:
   m_ObjectHideFlags: 0
