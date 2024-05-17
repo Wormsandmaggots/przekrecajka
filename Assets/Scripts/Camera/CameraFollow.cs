@@ -8,9 +8,14 @@ public class CameraFollow : MonoBehaviour
     public static bool FollowX = true;
     public static bool FollowY = true;
     [SerializeField] private float e = 0.01f;
-    [SerializeField] private Transform what;
+    private Transform what;
     [SerializeField] private float cameraSpeed = 2;
     private Vector3 currentVelocity;
+
+    private void Start()
+    {
+        what = FindAnyObjectByType<PlayerMainBone>().transform;
+    }
 
     private void LateUpdate()
     {

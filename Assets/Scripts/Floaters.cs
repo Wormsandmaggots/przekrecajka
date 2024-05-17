@@ -41,9 +41,9 @@ public class Floaters : MonoBehaviour
             Vector2 position = transform.position;
             Vector2 point = other.ClosestPoint(position);
             
-            RaycastHit2D xHit = Physics2D.Raycast(position, new Vector2(direction.x > 0 ? -1 : 1, 0), 1f,
+            RaycastHit2D xHit = Physics2D.Raycast(point, new Vector2(direction.x > 0 ? -1 : 1, 0), 1f,
                 Settings.bubbleHolder);
-            RaycastHit2D yHit = Physics2D.Raycast(position, new Vector2(0, direction.y > 0 ? -1 : 1), 1f,
+            RaycastHit2D yHit = Physics2D.Raycast(point, new Vector2(0, direction.y > 0 ? -1 : 1), 1f,
                 Settings.bubbleHolder);
             
             if (xHit.collider != null)

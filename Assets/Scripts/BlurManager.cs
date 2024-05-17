@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class BlurManager : MonoBehaviour
 {
-    [SerializeField] private Camera blurCamera;
+    private static Camera blurCamera;
     [SerializeField] private Material blurMaterial;
     
     // Start is called before the first frame update
     void Start()
     {
+        blurCamera = Camera.main.transform.GetChild(0).GetComponent<Camera>();
+        
         if (blurCamera.targetTexture != null)
         {
             blurCamera.targetTexture.Release();
@@ -17,11 +19,13 @@ public class BlurManager : MonoBehaviour
 
         blurCamera.targetTexture = new RenderTexture(Screen.width, Screen.height, 24, RenderTextureFormat.ARGB32, 1);
         blurMaterial.SetTexture("_RenderTexture", blurCamera.targetTexture);
+
+        blurCamera.gameObject.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
+    public static void SetBlur(bool value)
     {
-        
+        blurCamera.gameObject.SetActive(value);
     }
+    
 }
