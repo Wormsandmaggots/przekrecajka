@@ -73,13 +73,13 @@ Material:
     - _DistortionSpeed: 1
     - _EnableExternalAlpha: 0
     - _FresnelPower: 3.45
-    - _NoiseRotationScale: 2
+    - _NoiseRotationScale: 3
     - _ParticleAge: 0
-    - _RotationSpeed: 10
+    - _RotationSpeed: 1
     - _Time: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _DistortionSpeed: {r: 0.3, g: 0.3, b: 0, a: 0}
+    - _DistortionSpeed: {r: 0.05, g: 0.1, b: 0, a: 0}
     - _MinMaxPower: {r: 0.5, g: 1, b: 0, a: 0}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _Size: {r: 1, g: 1, b: 0, a: 0}

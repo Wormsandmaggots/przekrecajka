@@ -45,9 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   accelerometrPower: {x: 1000, y: 1000}
-  activateAccelerometrThreshold: 1
-  activateDirectionThreshold: {x: 0.6, y: 1}
+  activateAccelerometrThreshold: 7
+  activateDirectionThreshold: {x: 2, y: 0}
   unintentionalDirectionActivationGapMultiplier: {x: 2, y: 2}
-  minimalAccelerationThreshold: {x: 0.6, y: 1}
+  minimalAccelerationThreshold: {x: 2, y: 2}
   activeateDelay: 0.5
-  gyroDelta: {x: 1.5, y: 1.5}
+  gyroDelta: {x: 2, y: 2}
+  accelerometer: 0
