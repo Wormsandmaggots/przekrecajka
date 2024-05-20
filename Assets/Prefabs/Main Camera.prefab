@@ -109,7 +109,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   e: 0
-  what: {fileID: 0}
   cameraSpeed: 8
 --- !u!114 &7287123682436294000
 MonoBehaviour:
@@ -177,6 +176,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 585455396971340525}
     m_Modifications:
+    - target: {fileID: 1544763103046215146, guid: f3857380e42197f45b23b609a4243bfc, type: 3}
+      propertyPath: m_TargetDisplay
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4390052549665410036, guid: f3857380e42197f45b23b609a4243bfc, type: 3}
       propertyPath: m_Name
       value: BlurCamera

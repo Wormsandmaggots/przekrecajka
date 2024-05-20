@@ -110,15 +110,11 @@ public class Accelerometr : MonoBehaviour
             {
                 acc.y = 0;
             }
-            
-            Debug.Log(acc);
         }
-
         
         if (!Active && acc.magnitude >= activateAccelerometrThreshold)
         {
             StartCoroutine(ActivateAccelerometr(acc.normalized));
-            //prevAcceleration = Vector2.zero;
         }
         else
         {

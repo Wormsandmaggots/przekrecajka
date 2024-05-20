@@ -118,6 +118,7 @@ public class Player : MonoBehaviour
 
             if (health <= 0)
             {
+                HUD.instance.ShowLoseScreen();
                 Debug.Log("Player is dead");
             }
 
@@ -132,33 +133,3 @@ public class Player : MonoBehaviour
         }
     }
 }
-
-// public void CollisionEnter(BoneFunctionality bf, Collider2D c2d)
-// {
-//     if (c2d.gameObject.TryGetComponent(out IDoDamage doDamage))
-//     {
-//         Health -= doDamage.getDamage();
-//         Vector2 dir = transform.position - c2d.transform.position;
-//         dir = dir.normalized;
-//         rbh.PushBones(dir, pushPower);
-//     }
-// }
-//
-// public void TriggerEnter(BoneFunctionality bf, Collider2D c2d)
-// {
-//     if (c2d.TryGetComponent(out IDoDamage doDamage))
-//     {
-//         Health -= doDamage.getDamage();
-//         Vector2 dir = transform.position - c2d.transform.position;
-//         dir = dir.normalized;
-//         rbh.PushBones(dir, pushPower);
-//     }
-//     else if(c2d.TryGetComponent(out ICollectable collectable))
-//     {
-//         collectable.Collect(this);
-//     }
-//     else if(c2d.gameObject.TryGetComponent(out FollowChange followChange))
-//     {
-//         followChange.ChangeFollow();
-//     }
-// }
