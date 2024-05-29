@@ -6,11 +6,11 @@ using UnityEngine;
 public class Settings : MonoBehaviour
 {
     public static LayerMask platforms;
-    public static Heart heart;
+    public static GameObject heart;
     public static LayerMask bubbleHolder;
     [SerializeField] private LayerMask platformLayer;
     [SerializeField] private LayerMask bubbleHolderLayer;
-    [SerializeField] private Heart heartPrefab;
+    [SerializeField] private GameObject heartPrefab;
 
     private void Start()
     {

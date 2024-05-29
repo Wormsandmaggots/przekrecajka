@@ -10,4 +10,14 @@ public class Utils
     {
         return new Quaternion(q.x, q.y, -q.z, -q.w);
     }
+    
+    public static void ScaleAround(Transform target, Transform pivot, Vector3 scale) {
+        Transform pivotParent = pivot.parent;
+        Vector3 pivotPos = pivot.position;
+        pivot.parent = target;      
+        target.localScale = scale;
+        target.position += pivotPos - pivot.position;
+        pivot.parent = pivotParent;
+    }
+
 }

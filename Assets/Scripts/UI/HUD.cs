@@ -27,10 +27,12 @@ public class HUD : MonoBehaviour
      [SerializeField] private Button nextLevelButton;
      [SerializeField] private Button tryAgainButton;
 
+     private Player player;
+
      private void Start()
      {
           blurPanel.SetActive(false);
-
+          player = FindAnyObjectByType<Player>();
           instance = this;
      }
 
@@ -59,6 +61,9 @@ public class HUD : MonoBehaviour
           blurPanel.SetActive(true);
           BlurManager.SetBlur(true);
 
+          Giroscope.GravityMultiplier = 0;
+          Accelerometr.CanDash = false;
+          
           mainPanel.DOJump(mainPanelDestination.position, 4, 4, 1.5f);
      }
 
@@ -69,6 +74,9 @@ public class HUD : MonoBehaviour
 
      public void TryAgain()
      {
+          Giroscope.GravityMultiplier = 1;
+          Accelerometr.CanDash = true;
+          player.SetConstraintsFalse();
           Core.LoadCurrentSceneAgain();
      }
 

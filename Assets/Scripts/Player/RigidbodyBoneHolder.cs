@@ -23,6 +23,19 @@ public class RigidbodyBoneHolder : MonoBehaviour
         }
     }
 
+    public void ToggleConstraints(bool value)
+    {
+        foreach (var rb in bonerb)
+        {
+            rb.constraints = RigidbodyConstraints2D.FreezePosition;
+        }
+    }
+
+    public void ToggleGravity(bool value)
+    {
+        SetGravity(value ? 1 : 0);
+    }
+
     public void SetGravity(float gravityScale)
     {
         foreach (Rigidbody2D rb in bonerb)

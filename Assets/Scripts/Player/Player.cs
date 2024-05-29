@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -15,14 +16,16 @@ public class Player : MonoBehaviour
     private bool immune = false;
     private RigidbodyBoneHolder rbh;
     private PlayerMainBone playerMainBone;
+    private Animator animator;
     
     private void Start()
     {
+        animator = GetComponent<Animator>();
         playerMainBone = GetComponentInChildren<PlayerMainBone>();
         rbh = GetComponent<RigidbodyBoneHolder>();
         Health = maxHealth;
     }
-    
+
     public void TriggerEnter(Collider2D c2d, PlayerMainBone pmb)
     {
         if (c2d.TryGetComponent(out IDoDamage doDamage))
@@ -38,11 +41,11 @@ public class Player : MonoBehaviour
             rbh.PushBones(dir, pushPower);
             
             Rigidbody2D heartrb = Instantiate(Settings.heart, playerMainBone.transform.position, quaternion.identity)
-                .GetComponent<Rigidbody2D>();
+                .transform.GetChild(0).GetComponent<Rigidbody2D>();
 
-            Vector2 random = new Vector2(Random.Range(0, 1), Random.Range(0, 1)).normalized;
+            //Vector2 random = new Vector2(Random.Range(0, 1), Random.Range(0, 1)).normalized;
             
-            heartrb.AddForce(random * pushPower);
+            heartrb.AddForce(-dir * pushPower);
         }
         else if(c2d.TryGetComponent(out ICollectable collectable))
         {
@@ -100,6 +103,26 @@ public class Player : MonoBehaviour
         rbh.PushBones(dir, power);
     }
 
+    public void ToggleGravity(bool value)
+    {
+        rbh.ToggleGravity(value);
+    }
+
+    public void SetConstraintsTrue()
+    {
+        rbh.ToggleConstraints(true);
+    }
+
+    public void SetConstraintsFalse()
+    {
+        rbh.ToggleConstraints(false);
+    }
+
+    public void ShowHud()
+    {
+        HUD.instance.ShowLoseScreen();
+    }
+
     private IEnumerator Immune()
     {
         immune = true;
@@ -118,8 +141,8 @@ public class Player : MonoBehaviour
 
             if (health <= 0)
             {
-                HUD.instance.ShowLoseScreen();
                 Debug.Log("Player is dead");
+                animator.SetTrigger("die");
             }
 
             if (health > maxHealth)
@@ -129,7 +152,8 @@ public class Player : MonoBehaviour
             
             HoleManager.OnHealthChange.Invoke(health);
             
-            transform.localScale = Vector3.one + Vector3.one * health/10f * sizeMultiplier;  
+            //transform.localScale = Vector3.one + Vector3.one * health/10f * sizeMultiplier;  
+            //Utils.ScaleAround(transform, playerMainBone.transform, Vector3.one + Vector3.one * health/10f * sizeMultiplier);
         }
     }
 }
