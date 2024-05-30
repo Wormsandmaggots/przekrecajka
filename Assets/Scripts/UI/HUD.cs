@@ -11,6 +11,7 @@ public class HUD : MonoBehaviour
      [SerializeField] private Transform mainPanel;
      [SerializeField] private Transform mainPanelDestination;
      [SerializeField] private GameObject blurPanel;
+     private Vector3 mainPanelStartPos;
      
      [Header("Image")]
      [SerializeField] private Image endImage;
@@ -32,8 +33,18 @@ public class HUD : MonoBehaviour
      private void Start()
      {
           blurPanel.SetActive(false);
+          mainPanelStartPos = mainPanel.transform.position;
           player = FindAnyObjectByType<Player>();
           instance = this;
+     }
+
+     public void HideScreen()
+     {
+          blurPanel.SetActive(false);
+          BlurManager.SetBlur(false);
+          
+          mainPanel.gameObject.SetActive(false);
+          mainPanel.DOMove(mainPanelStartPos, 1f);
      }
 
      public void ShowWinScreen()
@@ -42,6 +53,8 @@ public class HUD : MonoBehaviour
           endText.text = winText;
           tryAgainButton.gameObject.SetActive(false);
           nextLevelButton.gameObject.SetActive(true);
+          
+          WorldLoader.UpdateSave(WorldChoose.chosenWorldName, LevelPicker.CurrentLevel, true);
           
           ShowHud();
      }
@@ -58,6 +71,8 @@ public class HUD : MonoBehaviour
 
      private void ShowHud()
      {
+          mainPanel.gameObject.SetActive(true);
+          
           blurPanel.SetActive(true);
           BlurManager.SetBlur(true);
 
@@ -77,7 +92,10 @@ public class HUD : MonoBehaviour
           Giroscope.GravityMultiplier = 1;
           Accelerometr.CanDash = true;
           player.SetConstraintsFalse();
-          Core.LoadCurrentSceneAgain();
+          HideScreen();
+          //Core.LoadCurrentSceneAgain();
+          player = Instantiate(Settings.player, Settings.playerStartPos, Quaternion.identity).GetComponent<Player>();
+          Settings.cameraFollow.what = player.GetComponentInChildren<PlayerMainBone>().transform;
      }
 
      public void LoadNextLevel()

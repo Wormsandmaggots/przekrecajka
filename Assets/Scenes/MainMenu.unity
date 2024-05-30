@@ -198,6 +198,7 @@ GameObject:
   - component: {fileID: 1057676037}
   - component: {fileID: 1057676036}
   - component: {fileID: 1057676035}
+  - component: {fileID: 1057676038}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -279,6 +280,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1057676038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1057676034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    quality: 3
+    frameInfluence: 0.1
+    jitterScale: 1
+    mipBias: 0
+    varianceClampScale: 0.9
+    contrastAdaptiveSharpening: 0
 --- !u!1001 &8531520491761839561
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -287,14 +332,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 625611823334206233, guid: a006648188083a34c9c1e00f79d4816c, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 76948e4585fd4b04c84662d788998a5b, type: 2}
+    - target: {fileID: 625611823334206233, guid: a006648188083a34c9c1e00f79d4816c, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 6917678212054421718, guid: 76948e4585fd4b04c84662d788998a5b, type: 2}
+    - target: {fileID: 625611823334206233, guid: a006648188083a34c9c1e00f79d4816c, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 703400498352500252, guid: a006648188083a34c9c1e00f79d4816c, type: 3}
+      propertyPath: power
+      value: 0.001
+      objectReference: {fileID: 0}
     - target: {fileID: 2317657723725146887, guid: a006648188083a34c9c1e00f79d4816c, type: 3}
       propertyPath: m_Name
       value: MainMenuUI
       objectReference: {fileID: 0}
-    - target: {fileID: 4385283415396235079, guid: a006648188083a34c9c1e00f79d4816c, type: 3}
-      propertyPath: m_AdditionalShaderChannelsFlag
-      value: 1
+    - target: {fileID: 4302921893684574925, guid: a006648188083a34c9c1e00f79d4816c, type: 3}
+      propertyPath: levelSceneName
+      value: WorldPicker
       objectReference: {fileID: 0}
+    - target: {fileID: 4385283415396235079, guid: a006648188083a34c9c1e00f79d4816c, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1057676036}
     - target: {fileID: 6005143757640884648, guid: a006648188083a34c9c1e00f79d4816c, type: 3}
       propertyPath: m_Pivot.x
       value: 0

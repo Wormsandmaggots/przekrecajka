@@ -13,39 +13,48 @@ public class Player : MonoBehaviour
     [SerializeField] private float immunityTime = 0.5f;
     [SerializeField] private float sizeMultiplier = 1.1f;
     private int health;
-    private bool immune = false;
+    private bool immune = true;
     private RigidbodyBoneHolder rbh;
     private PlayerMainBone playerMainBone;
     private Animator animator;
+    private Vector2 dir;
     
     private void Start()
     {
+        transform.position = Settings.playerStartPos;
         animator = GetComponent<Animator>();
         playerMainBone = GetComponentInChildren<PlayerMainBone>();
         rbh = GetComponent<RigidbodyBoneHolder>();
+        StartCoroutine(Immune());
         Health = maxHealth;
+        // else
+        // {
+        //     transform.localScale = Vector3.one + Vector3.one * health / 10f * sizeMultiplier;
+        // }
     }
 
     public void TriggerEnter(Collider2D c2d, PlayerMainBone pmb)
     {
         if (c2d.TryGetComponent(out IDoDamage doDamage))
         {
+            dir = pmb.transform.position - c2d.transform.position;
+            dir = dir.normalized;
+            //rbh.PushBones(dir, pushPower);
+
+            //Vector2 random = new Vector2(Random.Range(0, 1), Random.Range(0, 1)).normalized;
+            
             if (!immune)
             {
                 StartCoroutine(Immune());
                 Health -= doDamage.getDamage();
+                
+                Rigidbody2D heartrb = Instantiate(Settings.heart, playerMainBone.transform.position, quaternion.identity)
+                    .transform.GetChild(0).GetComponent<Rigidbody2D>();
+                
+                heartrb.AddForce(-dir * pushPower);
             }
-            
-            Vector2 dir = pmb.transform.position - c2d.transform.position;
-            dir = dir.normalized;
-            rbh.PushBones(dir, pushPower);
-            
-            Rigidbody2D heartrb = Instantiate(Settings.heart, playerMainBone.transform.position, quaternion.identity)
-                .transform.GetChild(0).GetComponent<Rigidbody2D>();
 
-            //Vector2 random = new Vector2(Random.Range(0, 1), Random.Range(0, 1)).normalized;
-            
-            heartrb.AddForce(-dir * pushPower);
+            PushBones(dir, pushPower);
         }
         else if(c2d.TryGetComponent(out ICollectable collectable))
         {
@@ -76,14 +85,14 @@ public class Player : MonoBehaviour
         else if(c2d.TryGetComponent(out Vaccum v))
         {
             Vector2 distance = c2d.transform.position - pmb.transform.position;
-            Vector2 dir = distance.normalized;
+            Vector2 dir2 = distance.normalized;
             
             Vector2 vp;
             
             vp.x = Mathf.Lerp(dir.x, v.GetPower().x, distance.magnitude / v.GetSmooth().x);
             vp.y = Mathf.Lerp(dir.y, v.GetPower().y, distance.magnitude / v.GetSmooth().y);
             
-            PushBones(dir, vp);
+            PushBones(dir2, vp);
         }
     }
     
@@ -92,9 +101,9 @@ public class Player : MonoBehaviour
         if (c2d.gameObject.TryGetComponent(out IDoDamage doDamage))
         {
             Health -= doDamage.getDamage();
-            Vector2 dir = transform.position - c2d.transform.position;
-            dir = dir.normalized;
-            rbh.PushBones(dir, pushPower);
+            Vector2 dir2 = transform.position - c2d.transform.position;
+            dir2 = dir2.normalized;
+            rbh.PushBones(dir2, pushPower);
         }
     }
 
@@ -137,6 +146,19 @@ public class Player : MonoBehaviour
         get => health;
         set
         {
+            // if (!first)
+            // {
+            //     GameObject g = Instantiate(Settings.player, playerMainBone.transform.position, quaternion.identity);
+            //     Destroy(gameObject);
+            //     Player newPlayer = g.GetComponent<Player>();
+            //     //StartCoroutine(newPlayer.Immune());
+            //     newPlayer.Health = value;
+            //     newPlayer.dir = dir;
+            //     Settings.cameraFollow.what = g.GetComponentInChildren<PlayerMainBone>().transform;
+            // }
+            //
+            // first = false;
+            
             health = value;
 
             if (health <= 0)
@@ -153,7 +175,6 @@ public class Player : MonoBehaviour
             HoleManager.OnHealthChange.Invoke(health);
             
             //transform.localScale = Vector3.one + Vector3.one * health/10f * sizeMultiplier;  
-            //Utils.ScaleAround(transform, playerMainBone.transform, Vector3.one + Vector3.one * health/10f * sizeMultiplier);
         }
     }
 }
