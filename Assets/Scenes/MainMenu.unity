@@ -292,7 +292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_RenderShadows: 1
+  m_RenderShadows: 0
   m_RequiresDepthTextureOption: 2
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
@@ -303,8 +303,8 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
-  m_Antialiasing: 0
+  m_RenderPostProcessing: 1
+  m_Antialiasing: 2
   m_AntialiasingQuality: 2
   m_StopNaN: 0
   m_Dithering: 0
@@ -360,6 +360,42 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1057676036}
+    - target: {fileID: 5250705515849672166, guid: a006648188083a34c9c1e00f79d4816c, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5250705515849672166, guid: a006648188083a34c9c1e00f79d4816c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5250705515849672166, guid: a006648188083a34c9c1e00f79d4816c, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5250705515849672166, guid: a006648188083a34c9c1e00f79d4816c, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5250705515849672166, guid: a006648188083a34c9c1e00f79d4816c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1.1400146
+      objectReference: {fileID: 0}
+    - target: {fileID: 5250705515849672166, guid: a006648188083a34c9c1e00f79d4816c, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1.1179199
+      objectReference: {fileID: 0}
+    - target: {fileID: 5897580347069532710, guid: a006648188083a34c9c1e00f79d4816c, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.583
+      objectReference: {fileID: 0}
+    - target: {fileID: 5897580347069532710, guid: a006648188083a34c9c1e00f79d4816c, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 5897580347069532710, guid: a006648188083a34c9c1e00f79d4816c, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1920
+      objectReference: {fileID: 0}
     - target: {fileID: 6005143757640884648, guid: a006648188083a34c9c1e00f79d4816c, type: 3}
       propertyPath: m_Pivot.x
       value: 0
