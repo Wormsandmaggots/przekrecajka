@@ -5,6 +5,7 @@ using UnityEngine;
 public class BlurManager : MonoBehaviour
 {
     private static Camera blurCamera;
+    public static RenderTexture renderTexture;
     [SerializeField] private Material blurMaterial;
     
     void Awake()
@@ -16,8 +17,9 @@ public class BlurManager : MonoBehaviour
             blurCamera.targetTexture.Release();
         }
 
-        blurCamera.targetTexture = new RenderTexture(Screen.width, Screen.height, 24, RenderTextureFormat.ARGB32, 1);
-        blurMaterial.SetTexture("_RenderTexture", blurCamera.targetTexture);
+        renderTexture = new RenderTexture(Screen.width, Screen.height, 24, RenderTextureFormat.ARGB32, 1);
+        blurCamera.targetTexture = renderTexture;
+        blurMaterial.SetTexture("_RenderTexture", renderTexture);
 
         blurCamera.gameObject.SetActive(false);
     }

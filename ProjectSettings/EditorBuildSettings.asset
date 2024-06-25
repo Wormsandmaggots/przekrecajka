@@ -39,5 +39,7 @@ EditorBuildSettings:
     path: Assets/Scenes/lvl/Venus_3.unity
     guid: 146e6aedfc7aa48458fc3b8f3d544464
   m_configObjects:
+    com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: dfe267f548d202d4d87e2bf77f437166, type: 2}
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 16c37c253d1cdac40a1fb8795c3eacd3, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 797dc0e586dceb44f8340f44d65fa249, type: 2}
   m_UseUCBPForAssetBundles: 0

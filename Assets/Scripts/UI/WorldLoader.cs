@@ -143,20 +143,5 @@ public class WorldLoader : MonoBehaviour
     public static void UpdateSave(string worldName, string level, bool value)
     {
         data[worldName][level] = value;
-
-        foreach (var picker in pickers)
-        {
-            if (picker.worldName == worldName)
-            {
-                foreach (var l in picker.levels)
-                {
-                    if (l.text.text == level)
-                    {
-                        l.Locked = value;
-                        return;
-                    }
-                }
-            }
-        }
     }
 }

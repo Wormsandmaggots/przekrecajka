@@ -3,6 +3,7 @@ using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class HUD : MonoBehaviour
 {
@@ -20,15 +21,19 @@ public class HUD : MonoBehaviour
      
      [Header("Text")]
      [SerializeField] private TextMeshProUGUI endText;
-     [SerializeField] private string winText;
+     [SerializeField] private string[] winText;
      [SerializeField] private string loseText;
      
      [Header("Buttons")]
-     [SerializeField] private Transform buttons;
      [SerializeField] private Button nextLevelButton;
      [SerializeField] private Button tryAgainButton;
 
      private Player player;
+
+     private void Awake()
+     {
+          instance = this;
+     }
 
      private void Start()
      {
@@ -50,9 +55,10 @@ public class HUD : MonoBehaviour
      public void ShowWinScreen()
      {
           endImage.sprite = winImage;
-          endText.text = winText;
+          endText.text = winText[Random.Range(0, winText.Length)];
           tryAgainButton.gameObject.SetActive(false);
           nextLevelButton.gameObject.SetActive(true);
+          PlayerMainBone.AllowCollision = false;
           
           WorldLoader.UpdateSave(WorldChoose.chosenWorldName, LevelPicker.CurrentLevel, true);
           
@@ -84,11 +90,19 @@ public class HUD : MonoBehaviour
 
      public void LoadMainMenu()
      {
+          PlayerMainBone.AllowCollision = true;
+          Giroscope.GravityMultiplier = 1;
+          Accelerometr.CanDash = true;
+          player.SetConstraintsFalse();
+          
+          BlurManager.renderTexture.Release();
+
           Core.LoadScene("MainMenu");
      }
 
      public void TryAgain()
      {
+          PlayerMainBone.AllowCollision = true;
           Giroscope.GravityMultiplier = 1;
           Accelerometr.CanDash = true;
           player.SetConstraintsFalse();
@@ -96,10 +110,25 @@ public class HUD : MonoBehaviour
           //Core.LoadCurrentSceneAgain();
           player = Instantiate(Settings.player, Settings.playerStartPos, Quaternion.identity).GetComponent<Player>();
           Settings.cameraFollow.what = player.GetComponentInChildren<PlayerMainBone>().transform;
+
+          CameraFollow.FollowY = InitialFollow.FollowY;
+          CameraFollow.FollowX = InitialFollow.FollowX;
      }
 
      public void LoadNextLevel()
      {
-          Core.LoadScene("");
+          BlurManager.renderTexture.Release();
+
+          PlayerMainBone.AllowCollision = true;
+          Giroscope.GravityMultiplier = 1;
+          Accelerometr.CanDash = true;
+          player.SetConstraintsFalse();
+          
+          LevelPicker.CurrentLevel = (Convert.ToInt16(LevelPicker.CurrentLevel) + 1).ToString();
+
+          string toLoad = WorldChoose.chosenWorldName + "_" + LevelPicker.CurrentLevel;
+          
+          Debug.Log(toLoad);
+          Core.LoadScene(toLoad);
      }
 } 

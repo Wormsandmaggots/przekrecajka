@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1186912214649931191}
   - component: {fileID: 2453007466521848245}
-  - component: {fileID: 1722748809014525505}
+  - component: {fileID: 6873560826071564145}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
@@ -154,7 +154,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0.19095483, y: -0.17198943}
   m_Size: {x: 0.88190985, y: 2.802454}
   m_Direction: 0
---- !u!114 &1722748809014525505
+--- !u!114 &6873560826071564145
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -163,10 +163,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3372396829823933316}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75e91f8b534ebbf4ebde8df35e3c8372, type: 3}
+  m_Script: {fileID: 11500000, guid: a857952a5f71ad646b67b071d8471601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneNameToTeleport: 
 --- !u!1 &7943108985747525911
 GameObject:
   m_ObjectHideFlags: 0
