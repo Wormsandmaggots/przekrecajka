@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
+    [HideInInspector]public Transform what;
     public static bool FollowX = true;
     public static bool FollowY = true;
     [SerializeField] private float e = 0.01f;
-    private Transform what;
     [SerializeField] private float cameraSpeed = 2;
     private Vector3 currentVelocity;
 

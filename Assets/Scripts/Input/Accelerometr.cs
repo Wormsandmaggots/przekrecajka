@@ -7,6 +7,7 @@ using UnityEngine.Serialization;
 
 public class Accelerometr : MonoBehaviour
 {
+    public static bool CanDash = true;
     private static bool Active = false;
     [SerializeField] private Vector2 accelerometrPower = new Vector2(1000,1000);
     [SerializeField] private float activateAccelerometrThreshold = 1f;
@@ -35,6 +36,8 @@ public class Accelerometr : MonoBehaviour
 
     private void Update()
     {
+        if(!CanDash) return;
+        
         float g = earthGravityValue * 0.1f;
         Vector3 gyro = Input.gyro.gravity;
         Vector3 gyroRate = Input.gyro.rotationRate;
@@ -110,15 +113,11 @@ public class Accelerometr : MonoBehaviour
             {
                 acc.y = 0;
             }
-            
-            Debug.Log(acc);
         }
-
         
         if (!Active && acc.magnitude >= activateAccelerometrThreshold)
         {
             StartCoroutine(ActivateAccelerometr(acc.normalized));
-            //prevAcceleration = Vector2.zero;
         }
         else
         {

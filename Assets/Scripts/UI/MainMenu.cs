@@ -5,7 +5,7 @@ namespace UI
 {
     public class MainMenu : MonoBehaviour
     {
-        [SerializeField] private string levelSceneName = "LevelChoose";
+        [SerializeField] private string levelSceneName = "WorldPicker";
         private void Update()
         {
             if (Input.touchCount > 0)

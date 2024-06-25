@@ -40,7 +40,7 @@ MonoBehaviour:
     x: -477
     y: -1623
     width: 1702
-    height: 2294
+    height: 2330
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -81,6 +81,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615103}
   - {fileID: 8926484042661615598}
   - {fileID: 8926484042661615609}
+  - {fileID: 8926484042661615618}
   m_UIPosition: {x: 0, y: 0}
   m_UICollapsed: 1
   m_UISuperCollapsed: 0
@@ -274,6 +275,22 @@ MonoBehaviour:
         m_SerializableType: UnityEngine.Vector2, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
       m_SerializableObject: '{"x":0.699999988079071,"y":0.699999988079071}'
+    min: -Infinity
+    max: Infinity
+    enumValues: []
+    descendantCount: 0
+  - name: New AnimationCurve
+    path: New AnimationCurve
+    tooltip: 
+    space: -1
+    spaceable: 0
+    sheetType: m_AnimationCurve
+    realType: AnimationCurve
+    defaultValue:
+      m_Type:
+        m_SerializableType: UnityEngine.AnimationCurve, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+      m_SerializableObject: '{"frames":[{"time":0.0,"value":0.002532958984375,"inTangent":0.0,"outTangent":9.806410789489746,"tangentMode":0,"leftTangentMode":2,"rightTangentMode":2,"broken":true},{"time":0.10084329545497894,"value":0.9914436936378479,"inTangent":9.806410789489746,"outTangent":-4.833791255950928,"tangentMode":0,"leftTangentMode":2,"rightTangentMode":2,"broken":true},{"time":0.24120312929153443,"value":0.31297358870506289,"inTangent":-4.833791255950928,"outTangent":2.992257833480835,"tangentMode":0,"leftTangentMode":2,"rightTangentMode":2,"broken":true},{"time":0.4022408127784729,"value":0.7948398590087891,"inTangent":2.992257833480835,"outTangent":-2.7956669330596926,"tangentMode":0,"leftTangentMode":2,"rightTangentMode":2,"broken":true},{"time":0.5642548203468323,"value":0.3419026732444763,"inTangent":-2.7956669330596926,"outTangent":2.4477720260620119,"tangentMode":0,"leftTangentMode":2,"rightTangentMode":2,"broken":true},{"time":0.7318127751350403,"value":0.7520463466644287,"inTangent":2.4477720260620119,"outTangent":-8.304708480834961,"tangentMode":0,"leftTangentMode":2,"rightTangentMode":2,"broken":true},{"time":0.7750361561775208,"value":0.39308875799179079,"inTangent":-8.304708480834961,"outTangent":-1.7473419904708863,"tangentMode":0,"leftTangentMode":2,"rightTangentMode":2,"broken":true},{"time":1.0,"value":0.0,"inTangent":-1.7473419904708863,"outTangent":0.0,"tangentMode":0,"leftTangentMode":2,"rightTangentMode":2,"broken":true}],"preWrapMode":8,"postWrapMode":8,"version":1}'
     min: -Infinity
     max: Infinity
     enumValues: []
@@ -2409,7 +2426,8 @@ MonoBehaviour:
       m_SerializableType: UnityEngine.AnimationCurve, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
   m_Direction: 0
-  m_LinkedSlots: []
+  m_LinkedSlots:
+  - {fileID: 8926484042661615619}
 --- !u!114 &8926484042661614832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6284,3 +6302,83 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
   m_Direction: 1
   m_LinkedSlots: []
+--- !u!114 &8926484042661615618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 330e0fca1717dde4aaa144f48232aa64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UIIgnoredErrors: []
+  m_Parent: {fileID: 114350483966674976}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 0
+  m_UISuperCollapsed: 0
+  m_InputSlots: []
+  m_OutputSlots:
+  - {fileID: 8926484042661615619}
+  m_ExposedName: New AnimationCurve
+  m_Exposed: 1
+  m_Order: 12
+  m_Category: 
+  m_Min:
+    m_Type:
+      m_SerializableType: 
+    m_SerializableObject: 
+  m_Max:
+    m_Type:
+      m_SerializableType: 
+    m_SerializableObject: 
+  m_IsOutput: 0
+  m_EnumValues: []
+  m_ValueFilter: 0
+  m_Tooltip: 
+  m_Nodes:
+  - m_Id: 0
+    linkedSlots:
+    - outputSlot: {fileID: 8926484042661615619}
+      inputSlot: {fileID: 8926484042661614831}
+    position: {x: 450.91537, y: 654.4168}
+    expandedSlots: []
+    expanded: 0
+--- !u!114 &8926484042661615619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c117b74c5c58db542bffe25c78fe92db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UIIgnoredErrors: []
+  m_Parent: {fileID: 0}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  m_MasterSlot: {fileID: 8926484042661615619}
+  m_MasterData:
+    m_Owner: {fileID: 8926484042661615618}
+    m_Value:
+      m_Type:
+        m_SerializableType: UnityEngine.AnimationCurve, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+      m_SerializableObject: '{"frames":[{"time":0.0,"value":0.002532958984375,"inTangent":0.0,"outTangent":9.806410789489746,"tangentMode":0,"leftTangentMode":2,"rightTangentMode":2,"broken":true},{"time":0.10084329545497894,"value":0.9914436936378479,"inTangent":9.806410789489746,"outTangent":-4.833791255950928,"tangentMode":0,"leftTangentMode":2,"rightTangentMode":2,"broken":true},{"time":0.24120312929153443,"value":0.31297358870506289,"inTangent":-4.833791255950928,"outTangent":2.992257833480835,"tangentMode":0,"leftTangentMode":2,"rightTangentMode":2,"broken":true},{"time":0.4022408127784729,"value":0.7948398590087891,"inTangent":2.992257833480835,"outTangent":-2.7956669330596926,"tangentMode":0,"leftTangentMode":2,"rightTangentMode":2,"broken":true},{"time":0.5642548203468323,"value":0.3419026732444763,"inTangent":-2.7956669330596926,"outTangent":2.4477720260620119,"tangentMode":0,"leftTangentMode":2,"rightTangentMode":2,"broken":true},{"time":0.7318127751350403,"value":0.7520463466644287,"inTangent":2.4477720260620119,"outTangent":-8.304708480834961,"tangentMode":0,"leftTangentMode":2,"rightTangentMode":2,"broken":true},{"time":0.7750361561775208,"value":0.39308875799179079,"inTangent":-8.304708480834961,"outTangent":-1.7473419904708863,"tangentMode":0,"leftTangentMode":2,"rightTangentMode":2,"broken":true},{"time":1.0,"value":0.0,"inTangent":-1.7473419904708863,"outTangent":0.0,"tangentMode":0,"leftTangentMode":2,"rightTangentMode":2,"broken":true}],"preWrapMode":8,"postWrapMode":8,"version":1}'
+    m_Space: -1
+  m_Property:
+    name: o
+    m_serializedType:
+      m_SerializableType: UnityEngine.AnimationCurve, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  m_Direction: 1
+  m_LinkedSlots:
+  - {fileID: 8926484042661614831}

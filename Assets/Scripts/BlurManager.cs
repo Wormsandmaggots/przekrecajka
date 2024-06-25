@@ -7,8 +7,7 @@ public class BlurManager : MonoBehaviour
     private static Camera blurCamera;
     [SerializeField] private Material blurMaterial;
     
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         blurCamera = Camera.main.transform.GetChild(0).GetComponent<Camera>();
         

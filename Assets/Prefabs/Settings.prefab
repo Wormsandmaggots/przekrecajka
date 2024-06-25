@@ -52,7 +52,8 @@ MonoBehaviour:
   bubbleHolderLayer:
     serializedVersion: 2
     m_Bits: 512
-  heartPrefab: {fileID: 410208174062046430, guid: d0baca0599d5c5c41b32ff85be6f914c, type: 3}
+  heartPrefab: {fileID: 9071868646981537347, guid: fc16a6ac77005cf4692f1622f97ebe9b, type: 3}
+  playerPrefab: {fileID: 5729431769180238189, guid: 0804286e9f2aa3744a370bc2fc6f2d8f, type: 3}
 --- !u!114 &5175743683219414225
 MonoBehaviour:
   m_ObjectHideFlags: 0
