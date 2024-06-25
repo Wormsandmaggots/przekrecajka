@@ -111,6 +111,7 @@ public class HUD : MonoBehaviour
           //Core.LoadCurrentSceneAgain();
           player = Instantiate(Settings.player, Settings.playerStartPos, Quaternion.identity).GetComponent<Player>();
           Settings.cameraFollow.what = player.GetComponentInChildren<PlayerMainBone>().transform;
+          Settings.cameraFollow.transform.position = CameraFollow.CameraStartPos;
 
           CameraFollow.FollowY = InitialFollow.FollowY;
           CameraFollow.FollowX = InitialFollow.FollowX;

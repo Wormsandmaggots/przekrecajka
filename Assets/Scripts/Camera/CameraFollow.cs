@@ -6,6 +6,7 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     [HideInInspector]public Transform what;
+    public static Vector3 CameraStartPos;
     public static bool FollowX = true;
     public static bool FollowY = true;
     [SerializeField] private float e = 0.01f;
@@ -14,6 +15,7 @@ public class CameraFollow : MonoBehaviour
 
     private void Start()
     {
+        CameraStartPos = transform.position;
         what = FindAnyObjectByType<PlayerMainBone>().transform;
     }
 
