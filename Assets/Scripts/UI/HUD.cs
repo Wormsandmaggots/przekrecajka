@@ -2,6 +2,7 @@ using System;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -113,6 +114,8 @@ public class HUD : MonoBehaviour
 
           CameraFollow.FollowY = InitialFollow.FollowY;
           CameraFollow.FollowX = InitialFollow.FollowX;
+
+          EventSystem.current.SetSelectedGameObject(null);
      }
 
      public void LoadNextLevel()
