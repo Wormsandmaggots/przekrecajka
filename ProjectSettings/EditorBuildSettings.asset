@@ -12,31 +12,31 @@ EditorBuildSettings:
     path: Assets/Scenes/RadekScene.unity
     guid: d28617c799dbde04086cca69982d23ad
   - enabled: 1
-    path: Assets/Scenes/lvl/s4 obstacle.unity
+    path: Assets/Scenes/lvl/Venus_4.unity
     guid: fd212b3d647d61e4290d5e32929757a0
   - enabled: 1
     path: Assets/Scenes/LevelChoose.unity
     guid: f6aebc963137a8847b42481588e98ce6
   - enabled: 1
-    path: Assets/Scenes/lvl/s5 obstacle.unity
+    path: Assets/Scenes/lvl/Venus_5.unity
     guid: ad3f6496d5e3fe24cadb7b7ee418058e
   - enabled: 1
-    path: Assets/Scenes/lvl/s6 laser.unity
+    path: Assets/Scenes/lvl/BlackHole_1.unity
     guid: a8fa5552646d85246ae55fee1823591a
   - enabled: 1
-    path: Assets/Scenes/lvl/s7 laser.unity
+    path: Assets/Scenes/lvl/BlackHole_2.unity
     guid: 108ab746dd0d606419349e7a66810b45
   - enabled: 1
-    path: Assets/Scenes/lvl/s1 platforma.unity
+    path: Assets/Scenes/lvl/Venus_1.unity
     guid: d6b5f71da85f7f34a9d5b7c22016950b
   - enabled: 1
     path: Assets/Scenes/WorldPicker.unity
     guid: b82f2a04b58a8444394804c0a81673f5
   - enabled: 1
-    path: Assets/Scenes/lvl/s2 platforma.unity
+    path: Assets/Scenes/lvl/Venus_2.unity
     guid: 2b965dd90d464ff4fb8ff60da8796969
   - enabled: 1
-    path: Assets/Scenes/lvl/s3 platforma.unity
+    path: Assets/Scenes/lvl/Venus_3.unity
     guid: 146e6aedfc7aa48458fc3b8f3d544464
   m_configObjects:
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 797dc0e586dceb44f8340f44d65fa249, type: 2}
