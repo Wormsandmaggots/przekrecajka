@@ -190,6 +190,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -791,7 +817,35 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Untitled_Artwork-15_0: 7742721119102333528
+      Untitled_Artwork-15_1: -2108863742840086867
+      Untitled_Artwork-15_10: 8462030730439648002
+      Untitled_Artwork-15_11: 2880011123794600174
+      Untitled_Artwork-15_12: -5635746941001448987
+      Untitled_Artwork-15_13: -8745355585713718927
+      Untitled_Artwork-15_14: 3413957192992202362
+      Untitled_Artwork-15_15: 650254334361498994
+      Untitled_Artwork-15_16: 3483101475353277203
+      Untitled_Artwork-15_17: -999501917257480620
+      Untitled_Artwork-15_18: 5905724381209932178
+      Untitled_Artwork-15_19: 964942474360007977
+      Untitled_Artwork-15_2: 1012390684076840278
+      Untitled_Artwork-15_20: 6163892707516818728
+      Untitled_Artwork-15_21: -7030476712333679901
+      Untitled_Artwork-15_22: -3096284768607305986
+      Untitled_Artwork-15_23: 4867491522296985858
+      Untitled_Artwork-15_24: 455168963028114170
+      Untitled_Artwork-15_25: -1339484701777929232
+      Untitled_Artwork-15_26: 667223859872833703
+      Untitled_Artwork-15_27: 4250652910280865876
+      Untitled_Artwork-15_3: -1037100053286203714
+      Untitled_Artwork-15_4: -5906419439170631188
+      Untitled_Artwork-15_5: 3018380534676313118
+      Untitled_Artwork-15_6: -7816436275194510296
+      Untitled_Artwork-15_7: 6496036525422256280
+      Untitled_Artwork-15_8: -7937033165728384314
+      Untitled_Artwork-15_9: 8301433828106894223
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
