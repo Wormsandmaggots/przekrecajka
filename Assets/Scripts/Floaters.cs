@@ -7,6 +7,7 @@ public class Floaters : MonoBehaviour
 {
     [SerializeField] private Vector2 speedLimitX = new Vector2(5,5);
     [SerializeField] private Vector2 speedLimitY = new Vector2(5, 5);
+    private Vector2 startPos;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
     private SpriteMask spriteMask;
@@ -15,6 +16,7 @@ public class Floaters : MonoBehaviour
 
     private void Start()
     {
+        startPos = transform.position;
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteMask = GetComponent<SpriteMask>();
@@ -32,6 +34,11 @@ public class Floaters : MonoBehaviour
         Vector2 m = direction * speed * Time.deltaTime;
         
         transform.position += new Vector3(m.x, m.y, 0);
+
+        if (((Vector2)transform.position - startPos).magnitude > 3)
+        {
+            transform.position = startPos;
+        }
     }
     
     private void OnTriggerExit2D(Collider2D other)
