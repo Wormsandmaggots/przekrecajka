@@ -15,103 +15,121 @@ public class WorldLoader : MonoBehaviour
     
     private void Start()
     {
-        if (!File.Exists(path))
+        if (data.Count <= 0)
         {
-            using (FileStream fs = File.Create(path))
+            if (!File.Exists(path))
             {
-            }
-
-            bool first = true;
-            
-            pickers = FindObjectsByType<WorldPicker>(FindObjectsSortMode.InstanceID);
-            foreach (var world in pickers)
-            {
-                data.Add(world.worldName, new Dictionary<string, bool>());
-                
-                saveString += world.worldName + " ";
-
-                if (first)
+                using (FileStream fs = File.Create(path))
                 {
-                    saveString += "w1";
-                    world.Locked = false;
                 }
-                else
+
+                bool first = true;
+
+                pickers = FindObjectsByType<WorldPicker>(FindObjectsSortMode.InstanceID);
+                foreach (var world in pickers)
                 {
-                    saveString += "w0";
-                    world.Locked = true;
-                }
-                
-                foreach (var level in world.levels)
-                {
+                    data.Add(world.worldName, new Dictionary<string, bool>());
+
+                    saveString += world.worldName + " ";
+
                     if (first)
                     {
-                        saveString += " " + level.text.text + "1";
-                        data[world.worldName].Add(level.text.text, true);
-                        level.Locked = false;
-                        first = false;
-                        continue;
+                        saveString += "w1";
+                        world.Locked = false;
                     }
-                    
-                    saveString += " " + level.text.text + "0";
-                    data[world.worldName].Add(level.text.text, false);
+                    else
+                    {
+                        saveString += "w0";
+                        world.Locked = true;
+                    }
+
+                    foreach (var level in world.levels)
+                    {
+                        if (first)
+                        {
+                            saveString += " " + level.text.text + "1";
+                            data[world.worldName].Add(level.text.text, true);
+                            level.Locked = false;
+                            first = false;
+                            continue;
+                        }
+
+                        saveString += " " + level.text.text + "0";
+                        data[world.worldName].Add(level.text.text, false);
+                    }
+
+                    saveString += "\n";
                 }
 
-                saveString += "\n";
+                File.WriteAllText(path, saveString);
+
             }
-            
-            File.WriteAllText(path, saveString);
-            
+            else
+            {
+
+                using (StreamReader reader = new StreamReader(path))
+                {
+                    string line;
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        saveString += line + "\n";
+                    }
+                }
+
+                string[] s1 = saveString.Split("\n");
+                string[] s = new string[s1.Length - 1];
+
+                for (int j = 0; j < s.Length; j++)
+                {
+                    s[j] = s1[j];
+                }
+
+                string[][] ss = new string [s.Length][];
+
+                int i = 0;
+                foreach (var line in s)
+                {
+                    ss[i] = s[i].Split(" ");
+                    i++;
+                }
+
+                foreach (var line in ss)
+                {
+                    for (int j = 0; j < line.Length; j++)
+                    {
+                        if (j == 0)
+                        {
+                            data.Add(line[j], new Dictionary<string, bool>());
+                            continue;
+                        }
+
+                        data[line[0]].Add(line[j][0].ToString(), line[j][1] == '0');
+                    }
+                }
+
+                pickers = FindObjectsByType<WorldPicker>(FindObjectsSortMode.InstanceID);
+
+                int k = 0;
+                foreach (var picker in pickers)
+                {
+                    picker.Locked = data[picker.worldName]["w"];
+
+                    for (int j = 0; j < picker.levels.Length; j++)
+                    {
+                        picker.levels[j].Locked = data[picker.worldName][picker.levels[j].text.text];
+                    }
+                }
+            }
         }
         else
         {
-            
-            using (StreamReader reader = new StreamReader(path))
-            {
-                string line;
-                while ((line = reader.ReadLine()) != null)
-                {
-                    saveString += line + "\n";
-                }
-            }
-
-            string[] s1 = saveString.Split("\n");
-            string[] s = new string[s1.Length - 1]; 
-
-            for (int j = 0; j < s.Length ; j++)
-            {
-                s[j] = s1[j];
-            }
-
-            string[][] ss = new string [s.Length][];
-            
-            int i = 0;
-            foreach (var line in s)
-            {
-                ss[i] = s[i].Split(" ");
-                i++;
-            }
-
-            foreach (var line in ss)
-            {
-                for (int j = 0; j < line.Length; j++)
-                {
-                    if (j == 0)
-                    {
-                        data.Add(line[j], new Dictionary<string, bool>());
-                        continue;
-                    }
-                    
-                    data[line[0]].Add(line[j][0].ToString(), line[j][1] == '0');
-                }
-            }
-
             pickers = FindObjectsByType<WorldPicker>(FindObjectsSortMode.InstanceID);
 
             int k = 0;
             foreach (var picker in pickers)
             {
                 picker.Locked = data[picker.worldName]["w"];
-                
+
                 for (int j = 0; j < picker.levels.Length; j++)
                 {
                     picker.levels[j].Locked = data[picker.worldName][picker.levels[j].text.text];

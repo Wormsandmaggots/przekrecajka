@@ -62,7 +62,22 @@ public class HUD : MonoBehaviour
           nextLevelButton.gameObject.SetActive(true);
           PlayerMainBone.AllowCollision = false;
           
-          WorldLoader.UpdateSave(WorldChoose.chosenWorldName, LevelPicker.CurrentLevel, true);
+          if (i == 0 && LevelPicker.CurrentLevel == "5")
+          {
+               WorldChoose.chosenWorldName = "BlackHole";
+               WorldLoader.UpdateSave(WorldChoose.chosenWorldName, "w", false);
+               LevelPicker.CurrentLevel = "0";
+               i++;
+          }
+          else if (i == 1 && LevelPicker.CurrentLevel == "8")
+          {
+               WorldChoose.chosenWorldName = "Sun";
+               WorldLoader.UpdateSave(WorldChoose.chosenWorldName, "w", false);
+               LevelPicker.CurrentLevel = "0";
+               i++;
+          }
+          
+          WorldLoader.UpdateSave(WorldChoose.chosenWorldName, (Convert.ToInt16(LevelPicker.CurrentLevel) + 1).ToString(), false);
           
           ShowHud();
      }
@@ -134,21 +149,6 @@ public class HUD : MonoBehaviour
           string toLoad = WorldChoose.chosenWorldName + "_" + LevelPicker.CurrentLevel;
           
           Debug.Log(toLoad);
-
-          if (i == 0 && LevelPicker.CurrentLevel == "6")
-          {
-               WorldChoose.chosenWorldName = "BlackHole";
-               LevelPicker.CurrentLevel = "1";
-               toLoad = WorldChoose.chosenWorldName + "_" + LevelPicker.CurrentLevel;
-               i++;
-          }
-          else if (i == 1 && LevelPicker.CurrentLevel == "9")
-          {
-               WorldChoose.chosenWorldName = "Sun";
-               LevelPicker.CurrentLevel = "1";
-               toLoad = WorldChoose.chosenWorldName + "_" + LevelPicker.CurrentLevel;
-               i++;
-          }
           
           Core.LoadScene(toLoad);
      }
