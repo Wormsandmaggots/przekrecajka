@@ -9,6 +9,7 @@ using Random = UnityEngine.Random;
 public class HUD : MonoBehaviour
 {
      public static HUD instance;
+     private static int i = 0;
 
      [SerializeField] private Transform mainPanel;
      [SerializeField] private Transform mainPanelDestination;
@@ -133,6 +134,22 @@ public class HUD : MonoBehaviour
           string toLoad = WorldChoose.chosenWorldName + "_" + LevelPicker.CurrentLevel;
           
           Debug.Log(toLoad);
+
+          if (i == 0 && LevelPicker.CurrentLevel == "6")
+          {
+               WorldChoose.chosenWorldName = "BlackHole";
+               LevelPicker.CurrentLevel = "1";
+               toLoad = WorldChoose.chosenWorldName + "_" + LevelPicker.CurrentLevel;
+               i++;
+          }
+          else if (i == 1 && LevelPicker.CurrentLevel == "9")
+          {
+               WorldChoose.chosenWorldName = "Sun";
+               LevelPicker.CurrentLevel = "1";
+               toLoad = WorldChoose.chosenWorldName + "_" + LevelPicker.CurrentLevel;
+               i++;
+          }
+          
           Core.LoadScene(toLoad);
      }
 } 
