@@ -47,11 +47,6 @@ public class Player : MonoBehaviour
             {
                 StartCoroutine(Immune());
                 Health -= doDamage.getDamage();
-                
-                Rigidbody2D heartrb = Instantiate(Settings.heart, playerMainBone.transform.position, quaternion.identity)
-                    .transform.GetChild(0).GetComponent<Rigidbody2D>();
-                
-                heartrb.AddForce(-dir * pushPower);
             }
 
             PushBones(dir, pushPower);
@@ -70,6 +65,22 @@ public class Player : MonoBehaviour
             {
                 rbh.PushBones(acc.GetDirection(), acc.GetForce());
             }
+        }
+        else if(c2d.TryGetComponent(out Laser laser))
+        {
+            dir = pmb.transform.position - c2d.transform.position;
+            dir = dir.normalized;
+            //rbh.PushBones(dir, pushPower);
+
+            //Vector2 random = new Vector2(Random.Range(0, 1), Random.Range(0, 1)).normalized;
+            
+            if (!immune)
+            {
+                StartCoroutine(Immune());
+                Health -= 1;
+            }
+
+            PushBones(dir, pushPower);
         }
     }
 
