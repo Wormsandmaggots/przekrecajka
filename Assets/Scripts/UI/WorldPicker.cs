@@ -74,8 +74,6 @@ public class WorldPicker : MonoBehaviour
         cam.DOOrthoSize(4f, 2f);
         animator.SetTrigger("Click");
         WorldChoose.AnimWorlds(this);
-        
-        Debug.Log(worldName);
     }
 
     public bool Locked

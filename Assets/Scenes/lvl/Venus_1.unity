@@ -339,10 +339,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3210594801372866564, guid: d1bb1afea462edf429fd3ac09e83f8e9, type: 3}
-      propertyPath: orthographic size
-      value: 4.69
-      objectReference: {fileID: 0}
     - target: {fileID: 7153115039877929784, guid: d1bb1afea462edf429fd3ac09e83f8e9, type: 3}
       propertyPath: m_Name
       value: Main Camera
@@ -3339,6 +3335,10 @@ PrefabInstance:
     - target: {fileID: 1725808794433267853, guid: 570f6d17b3e5d354b8ffac2297d26136, type: 3}
       propertyPath: m_Name
       value: HUD
+      objectReference: {fileID: 0}
+    - target: {fileID: 3629189459006678496, guid: 570f6d17b3e5d354b8ffac2297d26136, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4610940776670946434, guid: 570f6d17b3e5d354b8ffac2297d26136, type: 3}
       propertyPath: m_IsActive
