@@ -1,11 +1,11 @@
 # ninja log v5
-35	172	7411598649215816	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	a1870b941d72c977
-173	349	7411598650454121	D:/Projects/Unity/Przekrecajka/przekrecajka/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/o173c45l/obj/arm64-v8a/libswappywrapper.so	ea7484826bf3d7ed
-20	779	7411598655266056	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	f4bb207d26847a90
-11	795	7411598655404880	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	5a8c2ef902809098
-16	845	7411598655886216	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	ff9090381ff3832a
-30	898	7411598656441289	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	61a70e2cd2c908e7
-6	946	7411598656926582	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	f3022cd3caabd4e5
-26	1138	7411598658815216	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	f58c29b46c325657
-1	1201	7411598659466265	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	68afb41d98816ed7
-1201	1357	7411598660513151	D:/Projects/Unity/Przekrecajka/przekrecajka/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/o173c45l/obj/arm64-v8a/libgame.so	c490a95359503a80
+38	209	7411647127786804	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	a1870b941d72c977
+210	536	7411647129093047	D:/Projects/Unity/Przekrecajka/przekrecajka/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/o173c45l/obj/arm64-v8a/libswappywrapper.so	ea7484826bf3d7ed
+15	925	7411647135011324	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	f4bb207d26847a90
+0	957	7411647135317650	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	5a8c2ef902809098
+21	981	7411647135581612	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	ff9090381ff3832a
+32	1091	7411647136654786	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	61a70e2cd2c908e7
+5	1105	7411647136801924	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	f3022cd3caabd4e5
+26	1301	7411647138751998	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	f58c29b46c325657
+10	1381	7411647139535259	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	68afb41d98816ed7
+1381	1555	7411647140760805	D:/Projects/Unity/Przekrecajka/przekrecajka/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/o173c45l/obj/arm64-v8a/libgame.so	c490a95359503a80
