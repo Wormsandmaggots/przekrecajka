@@ -64,9 +64,12 @@ public class HUD : MonoBehaviour
                {
                     lives[i].DOFade(0.2f, 1f);
                     lives[i].transform.DOPunchScale(Vector3.one * 1.2f, 1f);
+                    lives[i].transform.DOScale(Vector3.one * 1.2f, 1.0f);
                }
                else
                {
+                    lives[i].DOFade(1.0f, 1f);
+                    lives[i].transform.DOScale(Vector3.one, 1.0f);
                     currentHP -= 1;
                }
           }

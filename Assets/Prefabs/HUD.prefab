@@ -627,6 +627,7 @@ MonoBehaviour:
   loseText: You squished!
   nextLevelButton: {fileID: 4479581189234916495}
   tryAgainButton: {fileID: 6256745101647313364}
+  livesContainer: {fileID: 6700895889807989811}
   transition: {fileID: 4144953503990845599}
 --- !u!1 &1976550276697681091
 GameObject:
