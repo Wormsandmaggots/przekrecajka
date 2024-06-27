@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6512445616907859370}
   - component: {fileID: 5175743683219414225}
   - component: {fileID: 7163316958036501271}
+  - component: {fileID: 2560179340289303653}
   m_Layer: 0
   m_Name: Settings
   m_TagString: Untagged
@@ -79,3 +80,46 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blurMaterial: {fileID: 2100000, guid: 6ad64d8c0aa0fef45b7dd8093b2c6490, type: 2}
+--- !u!114 &2560179340289303653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2816553928713301897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b5d8e59e91bf9648bb6b9497a344cff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: laser
+    isLooping: 1
+    volume: 0.5
+    clip: {fileID: 8300000, guid: 166ad177e0278194ba75456a25673544, type: 3}
+    source: {fileID: 0}
+  - name: win
+    isLooping: 0
+    volume: 0.3
+    clip: {fileID: 8300000, guid: 1c3aec3f2604f854c90a647f8b0ce54c, type: 3}
+    source: {fileID: 0}
+  - name: teleport
+    isLooping: 0
+    volume: 0.5
+    clip: {fileID: 8300000, guid: 7ac9e9613e66b6e408e1a3ad190718cb, type: 3}
+    source: {fileID: 0}
+  - name: lose
+    isLooping: 0
+    volume: 0.3
+    clip: {fileID: 8300000, guid: fbc9930289a49fb41875d98d758ef406, type: 3}
+    source: {fileID: 0}
+  - name: damage
+    isLooping: 0
+    volume: 0.5
+    clip: {fileID: 8300000, guid: e8dba27df1bb1d442a2c4cb0ecac4e28, type: 3}
+    source: {fileID: 0}
+  - name: background
+    isLooping: 1
+    volume: 0.036
+    clip: {fileID: 8300000, guid: 5ca07ecc3fc3f744fb711f93b7e6cc40, type: 3}
+    source: {fileID: 0}

@@ -43,6 +43,8 @@ public class Player : MonoBehaviour
 
             //Vector2 random = new Vector2(Random.Range(0, 1), Random.Range(0, 1)).normalized;
             
+            AudioManager.instance.Play("damage");
+            
             if (!immune)
             {
                 StartCoroutine(Immune());
@@ -71,6 +73,8 @@ public class Player : MonoBehaviour
             dir = pmb.transform.position - c2d.transform.position;
             dir = dir.normalized;
             //rbh.PushBones(dir, pushPower);
+            
+            AudioManager.instance.Play("damage");
 
             //Vector2 random = new Vector2(Random.Range(0, 1), Random.Range(0, 1)).normalized;
             

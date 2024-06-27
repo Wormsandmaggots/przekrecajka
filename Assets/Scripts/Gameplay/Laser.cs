@@ -75,9 +75,11 @@ public class Laser : MonoBehaviour
         end.transform.position = lineRenderer.GetPosition(1);
 
         workingTimer -= Time.deltaTime;
-        
-        if(!lineRenderer.enabled)
+
+        if (!lineRenderer.enabled)
+        {
             ToggleLaser(true);
+        }
 
         if (workingTimer <= 0)
         {
@@ -95,10 +97,14 @@ public class Laser : MonoBehaviour
 
         foreach (var ps in particles)
         {
-            if(value)
+            if (value)
+            {
+                AudioManager.instance.Play("laser");
                 ps.Play();
+            }
             else
             {
+                AudioManager.instance.Stop("laser");
                 ps.Stop();
             }
         }

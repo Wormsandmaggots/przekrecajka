@@ -18,6 +18,7 @@ public class Settings : MonoBehaviour
 
     private void Awake()
     {
+        DontDestroyOnLoad(gameObject);
         heart = heartPrefab;
         platforms = platformLayer;
         bubbleHolder = bubbleHolderLayer;

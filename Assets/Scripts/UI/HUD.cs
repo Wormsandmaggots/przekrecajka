@@ -36,6 +36,8 @@ public class HUD : MonoBehaviour
 
      private void Awake()
      {
+          Cursor.visible = false;
+          Cursor.lockState = CursorLockMode.Confined;
           instance = this;
      }
 
@@ -46,6 +48,7 @@ public class HUD : MonoBehaviour
           player = FindAnyObjectByType<Player>();
           instance = this;
 
+          transition.gameObject.SetActive(true);
           transition.DOFade(0, 1);
      }
 
@@ -84,6 +87,9 @@ public class HUD : MonoBehaviour
           WorldLoader.UpdateSave(WorldChoose.chosenWorldName, (Convert.ToInt16(LevelPicker.CurrentLevel) + 1).ToString(), false);
           
           ShowHud();
+          
+          AudioManager.instance.Play("win");
+
      }
 
      public void ShowLoseScreen()
@@ -94,6 +100,8 @@ public class HUD : MonoBehaviour
           nextLevelButton.gameObject.SetActive(false);
           
           ShowHud();
+          
+          AudioManager.instance.Play("lose");
      }
 
      private void ShowHud()
@@ -125,19 +133,24 @@ public class HUD : MonoBehaviour
 
      public void TryAgain()
      {
-          transition.DOFade(1, 1).onComplete = () => transition.DOFade(0, 1);
-          PlayerMainBone.AllowCollision = true;
-          Giroscope.GravityMultiplier = 1;
-          Accelerometr.CanDash = true;
-          player.SetConstraintsFalse();
-          HideScreen();
-          //Core.LoadCurrentSceneAgain();
-          player = Instantiate(Settings.player, Settings.playerStartPos, Quaternion.identity).GetComponent<Player>();
-          Settings.cameraFollow.what = player.GetComponentInChildren<PlayerMainBone>().transform;
-          Settings.cameraFollow.transform.position = CameraFollow.CameraStartPos;
+          transition.DOFade(1, 1).onComplete = () =>
+          {
+               PlayerMainBone.AllowCollision = true;
+               Giroscope.GravityMultiplier = 1;
+               Accelerometr.CanDash = true;
+               player.SetConstraintsFalse();
+               HideScreen();
+               //Core.LoadCurrentSceneAgain();
+               player = Instantiate(Settings.player, Settings.playerStartPos, Quaternion.identity).GetComponent<Player>();
+               Settings.cameraFollow.what = player.GetComponentInChildren<PlayerMainBone>().transform;
+               Settings.cameraFollow.transform.position = CameraFollow.CameraStartPos;
 
-          CameraFollow.FollowY = InitialFollow.FollowY;
-          CameraFollow.FollowX = InitialFollow.FollowX;
+               CameraFollow.FollowY = InitialFollow.FollowY;
+               CameraFollow.FollowX = InitialFollow.FollowX;
+               
+               transition.DOFade(0, 1);
+          };
+          
      }
 
      public void LoadNextLevel()
