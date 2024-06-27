@@ -166,6 +166,12 @@ public class Player : MonoBehaviour
         immune = false;
     }
 
+    public bool Immune1
+    {
+        get => immune;
+        set => immune = value;
+    }
+
     public int Health
     {
         get => health;
