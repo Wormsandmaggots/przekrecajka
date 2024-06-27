@@ -339,37 +339,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2544393049354811418, guid: d1bb1afea462edf429fd3ac09e83f8e9, type: 3}
-      propertyPath: what
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2544393049354811418, guid: d1bb1afea462edf429fd3ac09e83f8e9, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3210594801372866564, guid: d1bb1afea462edf429fd3ac09e83f8e9, type: 3}
       propertyPath: orthographic size
-      value: 4.705
-      objectReference: {fileID: 0}
-    - target: {fileID: 4516286461880641840, guid: d1bb1afea462edf429fd3ac09e83f8e9, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
-    - target: {fileID: 5436049548390337291, guid: d1bb1afea462edf429fd3ac09e83f8e9, type: 3}
-      propertyPath: UnitsSize
-      value: 9.41
+      value: 4.69
       objectReference: {fileID: 0}
     - target: {fileID: 7153115039877929784, guid: d1bb1afea462edf429fd3ac09e83f8e9, type: 3}
       propertyPath: m_Name
       value: Main Camera
-      objectReference: {fileID: 0}
-    - target: {fileID: 7287123682436294000, guid: d1bb1afea462edf429fd3ac09e83f8e9, type: 3}
-      propertyPath: followY
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7287123682436294000, guid: d1bb1afea462edf429fd3ac09e83f8e9, type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
