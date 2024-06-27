@@ -113,6 +113,7 @@ public class HUD : MonoBehaviour
 
           Giroscope.GravityMultiplier = 0;
           Accelerometr.CanDash = false;
+          player.SetConstraintsFalse();
           
           //EventSystem.current.SetSelectedGameObject(null);
           
@@ -121,9 +122,11 @@ public class HUD : MonoBehaviour
 
      public void LoadMainMenu()
      {
+          AudioManager.instance.Play("click");
           PlayerMainBone.AllowCollision = true;
           Giroscope.GravityMultiplier = 1;
           Accelerometr.CanDash = true;
+          player.Immune1 = true;
           player.SetConstraintsFalse();
           
           BlurManager.renderTexture.Release();
@@ -133,15 +136,14 @@ public class HUD : MonoBehaviour
 
      public void TryAgain()
      {
+          AudioManager.instance.Play("click");
           transition.DOFade(1, 1).onComplete = () =>
           {
-               PlayerMainBone.AllowCollision = true;
-               Giroscope.GravityMultiplier = 1;
-               Accelerometr.CanDash = true;
-               player.SetConstraintsFalse();
                HideScreen();
                //Core.LoadCurrentSceneAgain();
                Accelerometr.onAccelerometrActivate.RemoveAllListeners();
+               
+               Destroy(player.gameObject);
                
                player = Instantiate(Settings.player, Settings.playerStartPos, Quaternion.identity).GetComponent<Player>();
                Accelerometr.onAccelerometrActivate.AddListener(player.PushBones);
@@ -151,14 +153,22 @@ public class HUD : MonoBehaviour
 
                CameraFollow.FollowY = InitialFollow.FollowY;
                CameraFollow.FollowX = InitialFollow.FollowX;
-               
-               transition.DOFade(0, 1);
+
+               transition.DOFade(0, 1).onComplete = () =>
+               {
+                    PlayerMainBone.AllowCollision = true;
+                    Giroscope.GravityMultiplier = 1;
+                    Accelerometr.CanDash = true;
+                    player.SetConstraintsTrue();
+                    player.Immune1 = false;
+               };
           };
           
      }
 
      public void LoadNextLevel()
      {
+          AudioManager.instance.Play("click");
           BlurManager.renderTexture.Release();
 
           PlayerMainBone.AllowCollision = true;
