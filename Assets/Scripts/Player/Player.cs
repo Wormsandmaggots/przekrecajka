@@ -147,6 +147,11 @@ public class Player : MonoBehaviour
         HUD.instance.ShowLoseScreen();
     }
 
+    public void ShowWinScreen()
+    {
+        HUD.instance.ShowWinScreen();
+    }
+
     private IEnumerator Immune()
     {
         immune = true;

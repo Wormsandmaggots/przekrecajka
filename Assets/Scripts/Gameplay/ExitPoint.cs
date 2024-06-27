@@ -12,7 +12,7 @@ public class ExitPoint : MonoBehaviour
             if (other.TryGetComponent<PlayerMainBone>(out PlayerMainBone a ))
             {
                 a.GetComponentInParent<Animator>().SetTrigger("suck");
-                HUD.instance.ShowWinScreen();
+                //HUD.instance.ShowWinScreen();
             }
         }
     }
