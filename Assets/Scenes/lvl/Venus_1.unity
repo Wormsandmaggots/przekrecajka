@@ -1260,6 +1260,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Accelerometr
       objectReference: {fileID: 0}
+    - target: {fileID: 9031094004952651842, guid: 2178ff4bcdada364faa5ca6d9f525457, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
