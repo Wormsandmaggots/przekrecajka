@@ -32,8 +32,8 @@ public class LevelPicker : MonoBehaviour
         {
             locked = value;
             
-            lockImage.enabled = locked;
-            text.enabled = !locked;
+            lockImage.gameObject.SetActive(locked);
+            text.gameObject.SetActive(!locked);
         }
     }
 }

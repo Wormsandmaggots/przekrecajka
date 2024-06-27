@@ -97,8 +97,6 @@ public class WorldPicker : MonoBehaviour
         set
         {
             locked = value;
-            
-            
         }
     }
 }

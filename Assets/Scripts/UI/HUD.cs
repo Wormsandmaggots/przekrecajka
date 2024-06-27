@@ -34,7 +34,17 @@ public class HUD : MonoBehaviour
      private Image[] lives;
      [SerializeField] private Image transition;
 
+     [SerializeField] private GameObject tutorialHolder;
+     [SerializeField] private Animator tutorialAnimator;
+     [SerializeField] private TextMeshProUGUI tutorialText;
+     [SerializeField] private string[] texts;
+     [SerializeField] private string[] soundNames;
+     [SerializeField] private Transform tutorialDestination;
+     private Vector3 tutorialStartPos;
+
      private Player player;
+
+     private bool tutorialShowed = false;
 
      private void Awake()
      {
@@ -43,6 +53,7 @@ public class HUD : MonoBehaviour
           instance = this;
 
           lives = livesContainer.GetComponentsInChildren<Image>();
+          tutorialStartPos = tutorialHolder.transform.position;
      }
 
      private void Start()
@@ -54,6 +65,27 @@ public class HUD : MonoBehaviour
 
           transition.gameObject.SetActive(true);
           transition.DOFade(0, 1);
+     }
+
+     private void Update()
+     {
+          if (Input.GetMouseButtonDown(0))
+          {
+               if (tutorialShowed)
+               {
+                    if (currentIndex >= texts.Length)
+                    {
+                         HideTutorial();
+                    }
+                    else
+                    {
+                         tutorialText.text = texts[currentIndex];
+                         AudioManager.instance.Stop(soundNames[currentIndex - 1]);
+                         AudioManager.instance.Play(soundNames[currentIndex]);
+                         currentIndex++;
+                    }
+               }
+          }
      }
 
      public void UpdateHp(int currentHP)
@@ -73,6 +105,43 @@ public class HUD : MonoBehaviour
                     currentHP -= 1;
                }
           }
+     }
+
+     private int currentIndex = 0;
+
+     public void ShowTutorial()
+     {
+          tutorialShowed = true;
+          tutorialHolder.transform.DOMove(tutorialDestination.position, 1.0f).onComplete = () => tutorialAnimator.SetTrigger("show");
+          
+          blurPanel.SetActive(true);
+          BlurManager.SetBlur(true);
+
+          Giroscope.GravityMultiplier = 0;
+          Accelerometr.CanDash = false;
+          player.SetConstraintsFalse();
+
+          tutorialText.text = texts[currentIndex];
+          AudioManager.instance.Play(soundNames[currentIndex]);
+          
+          currentIndex++;
+     }
+
+     public void HideTutorial()
+     {
+          tutorialShowed = false;
+          tutorialHolder.transform.DOMove(tutorialStartPos, 1.0f);
+          
+          blurPanel.SetActive(false);
+          BlurManager.SetBlur(false);
+
+          Giroscope.GravityMultiplier = 1;
+          Accelerometr.CanDash = true;
+          player.SetConstraintsTrue();
+          tutorialAnimator.SetTrigger("hide");
+
+          //tutorialText.text = texts[currentIndex];
+          AudioManager.instance.Stop(soundNames[currentIndex - 1]);
      }
 
      public void HideScreen()

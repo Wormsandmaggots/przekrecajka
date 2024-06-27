@@ -133,8 +133,58 @@ MonoBehaviour:
     volume: 0.5
     clip: {fileID: 8300000, guid: 43274e1c15b2b4e4583f5af271cfe2cf, type: 3}
     source: {fileID: 0}
-  - name: explosion
+  - name: hi
     isLooping: 0
     volume: 0.5
-    clip: {fileID: 8300000, guid: 31344ea25ce8f424c907d669ce9ff581, type: 3}
+    clip: {fileID: 8300000, guid: 07f5d4216f1a81542a0cac09663829bf, type: 3}
+    source: {fileID: 0}
+  - name: Bob
+    isLooping: 0
+    volume: 0.5
+    clip: {fileID: 8300000, guid: d7b2bb823bb9e5245a15efe156bcd9f5, type: 3}
+    source: {fileID: 0}
+  - name: rotate
+    isLooping: 0
+    volume: 0.5
+    clip: {fileID: 8300000, guid: bed214b78767e2843a2f42ad9d32ce50, type: 3}
+    source: {fileID: 0}
+  - name: tight
+    isLooping: 0
+    volume: 0.5
+    clip: {fileID: 8300000, guid: 62488c0ebc273544ca92f8d6b1b567aa, type: 3}
+    source: {fileID: 0}
+  - name: rapid
+    isLooping: 0
+    volume: 0.5
+    clip: {fileID: 8300000, guid: 3b2a5efe7072b0946987b8051d8a04a2, type: 3}
+    source: {fileID: 0}
+  - name: hurt
+    isLooping: 0
+    volume: 0.5
+    clip: {fileID: 8300000, guid: 13edbd54844fbca4a862a2ad8556eb69, type: 3}
+    source: {fileID: 0}
+  - name: careful
+    isLooping: 0
+    volume: 0.5
+    clip: {fileID: 8300000, guid: 8cd7bfe5108ef7149a8da6355d8c7692, type: 3}
+    source: {fileID: 0}
+  - name: out
+    isLooping: 0
+    volume: 0.5
+    clip: {fileID: 8300000, guid: 0dd9cd5f68dc48549b95e2a589cb15b4, type: 3}
+    source: {fileID: 0}
+  - name: laser
+    isLooping: 0
+    volume: 0.5
+    clip: {fileID: 8300000, guid: fa66bbe9eb84c6842a4a6ea18f2ebb2f, type: 3}
+    source: {fileID: 0}
+  - name: pull
+    isLooping: 0
+    volume: 0.5
+    clip: {fileID: 8300000, guid: ed21cb583fa2c264d8dfb19271d95af7, type: 3}
+    source: {fileID: 0}
+  - name: aa
+    isLooping: 0
+    volume: 0.5
+    clip: {fileID: 8300000, guid: 147aa23b58c6c2d468d11f899ae2f50f, type: 3}
     source: {fileID: 0}

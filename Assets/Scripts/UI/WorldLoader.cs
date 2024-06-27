@@ -57,6 +57,7 @@ public class WorldLoader : MonoBehaviour
 
                         saveString += " " + level.text.text + "0";
                         data[world.worldName].Add(level.text.text, true);
+                        level.Locked = true;
                         level.GetComponent<Image>().DOFade(0.5f, 1);
                     }
 
