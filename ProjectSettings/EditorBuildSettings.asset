@@ -38,6 +38,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/lvl/Venus_3.unity
     guid: 146e6aedfc7aa48458fc3b8f3d544464
+  - enabled: 1
+    path: Assets/Scenes/lvl/BlackHole_3.unity
+    guid: 004188026effcf2468e90a13382c3f85
+  - enabled: 1
+    path: Assets/Scenes/lvl/BlackHole_4.unity
+    guid: 31a9dbe1f9077374ea2f8bd51dcbc7c6
+  - enabled: 1
+    path: Assets/Scenes/lvl/BlackHole_5.unity
+    guid: 05c2653034d15624eb20ae6333e70547
+  - enabled: 1
+    path: Assets/Scenes/lvl/BlackHole_6.unity
+    guid: 5b05f9ba452797444b49650480524cd4
   m_configObjects:
     com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: dfe267f548d202d4d87e2bf77f437166, type: 2}
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 16c37c253d1cdac40a1fb8795c3eacd3, type: 2}
