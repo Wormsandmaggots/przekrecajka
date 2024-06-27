@@ -178,6 +178,8 @@ public class Player : MonoBehaviour
         set
         {
             health = value;
+            
+            HUD.instance.UpdateHp(health);
 
             if (health <= 0)
             {

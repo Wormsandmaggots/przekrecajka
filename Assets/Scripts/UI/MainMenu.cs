@@ -8,7 +8,7 @@ namespace UI
     {
         [SerializeField] private string levelSceneName = "WorldPicker";
         private static bool first = true;
-        private float timer = 2.5f;
+        private float timer = 1.5f;
 
         private void Start()
         {

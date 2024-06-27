@@ -30,6 +30,8 @@ public class HUD : MonoBehaviour
      [SerializeField] private Button nextLevelButton;
      [SerializeField] private Button tryAgainButton;
 
+     [SerializeField] private GameObject livesContainer;
+     private Image[] lives;
      [SerializeField] private Image transition;
 
      private Player player;
@@ -39,6 +41,8 @@ public class HUD : MonoBehaviour
           Cursor.visible = false;
           Cursor.lockState = CursorLockMode.Confined;
           instance = this;
+
+          lives = livesContainer.GetComponentsInChildren<Image>();
      }
 
      private void Start()
@@ -50,6 +54,22 @@ public class HUD : MonoBehaviour
 
           transition.gameObject.SetActive(true);
           transition.DOFade(0, 1);
+     }
+
+     public void UpdateHp(int currentHP)
+     {
+          for (int i = 0; i < lives.Length; i++)
+          {
+               if (currentHP <= 0)
+               {
+                    lives[i].DOFade(0.2f, 1f);
+                    lives[i].transform.DOPunchScale(Vector3.one * 1.2f, 1f);
+               }
+               else
+               {
+                    currentHP -= 1;
+               }
+          }
      }
 
      public void HideScreen()
