@@ -151,6 +151,8 @@ public class HUD : MonoBehaviour
                transition.DOFade(0, 1);
           };
           
+          
+          
      }
 
      public void LoadNextLevel()
