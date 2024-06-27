@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace DefaultNamespace
 {
+    [ExecuteAlways]
     public class BlackHoleVisual : MonoBehaviour
     {
         [SerializeField] private float speed = 1;
