@@ -147,6 +147,11 @@ public class Player : MonoBehaviour
         HUD.instance.ShowLoseScreen();
     }
 
+    public void DeletePlayer()
+    {
+        Destroy(gameObject);
+    }
+
     public void ShowWinScreen()
     {
         HUD.instance.ShowWinScreen();
@@ -166,19 +171,6 @@ public class Player : MonoBehaviour
         get => health;
         set
         {
-            // if (!first)
-            // {
-            //     GameObject g = Instantiate(Settings.player, playerMainBone.transform.position, quaternion.identity);
-            //     Destroy(gameObject);
-            //     Player newPlayer = g.GetComponent<Player>();
-            //     //StartCoroutine(newPlayer.Immune());
-            //     newPlayer.Health = value;
-            //     newPlayer.dir = dir;
-            //     Settings.cameraFollow.what = g.GetComponentInChildren<PlayerMainBone>().transform;
-            // }
-            //
-            // first = false;
-            
             health = value;
 
             if (health <= 0)

@@ -141,7 +141,11 @@ public class HUD : MonoBehaviour
                player.SetConstraintsFalse();
                HideScreen();
                //Core.LoadCurrentSceneAgain();
+               Accelerometr.onAccelerometrActivate.RemoveAllListeners();
+               
                player = Instantiate(Settings.player, Settings.playerStartPos, Quaternion.identity).GetComponent<Player>();
+               Accelerometr.onAccelerometrActivate.AddListener(player.PushBones);
+               
                Settings.cameraFollow.what = player.GetComponentInChildren<PlayerMainBone>().transform;
                Settings.cameraFollow.transform.position = CameraFollow.CameraStartPos;
 

@@ -20,7 +20,7 @@ public class Accelerometr : MonoBehaviour
     private float earthGravityValue = 9.807f;
     private Vector2 prevAcceleration;
     private Vector2 prevGyro;
-    private UnityEvent<Vector2, Vector2> onAccelerometrActivate = new UnityEvent<Vector2, Vector2>();
+    public static UnityEvent<Vector2, Vector2> onAccelerometrActivate = new UnityEvent<Vector2, Vector2>();
     private Vector2 initialAcceleration;
 
     private void OnEnable()
