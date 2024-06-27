@@ -27,6 +27,9 @@ EditorBuildSettings:
     path: Assets/Scenes/lvl/BlackHole_2.unity
     guid: 108ab746dd0d606419349e7a66810b45
   - enabled: 1
+    path: Assets/Scenes/lvl/BlackHole_7.unity
+    guid: 158898acf4fcde14da53fff6b487c63a
+  - enabled: 1
     path: Assets/Scenes/lvl/Venus_1.unity
     guid: d6b5f71da85f7f34a9d5b7c22016950b
   - enabled: 1
