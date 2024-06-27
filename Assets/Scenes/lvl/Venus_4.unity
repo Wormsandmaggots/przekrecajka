@@ -1875,11 +1875,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4739381008955307034, guid: 0804286e9f2aa3744a370bc2fc6f2d8f, type: 3}
       propertyPath: pushPower.x
-      value: 100
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 4739381008955307034, guid: 0804286e9f2aa3744a370bc2fc6f2d8f, type: 3}
       propertyPath: pushPower.y
-      value: 100
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 4771675031987964351, guid: 0804286e9f2aa3744a370bc2fc6f2d8f, type: 3}
       propertyPath: m_ConnectedAnchor.x
