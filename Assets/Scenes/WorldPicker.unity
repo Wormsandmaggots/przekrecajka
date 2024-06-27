@@ -5707,6 +5707,7 @@ GameObject:
   - component: {fileID: 1977036349}
   - component: {fileID: 1977036353}
   - component: {fileID: 1977036354}
+  - component: {fileID: 1977036355}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -5861,6 +5862,64 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   sharedProfile: {fileID: 11400000, guid: f645fe0d310c4a34bb8f8f24e8028162, type: 2}
+--- !u!114 &1977036355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1977036348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b5d8e59e91bf9648bb6b9497a344cff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: laser
+    isLooping: 1
+    volume: 0.5
+    clip: {fileID: 8300000, guid: 166ad177e0278194ba75456a25673544, type: 3}
+    source: {fileID: 0}
+  - name: win
+    isLooping: 0
+    volume: 0.3
+    clip: {fileID: 8300000, guid: 1c3aec3f2604f854c90a647f8b0ce54c, type: 3}
+    source: {fileID: 0}
+  - name: teleport
+    isLooping: 0
+    volume: 0.5
+    clip: {fileID: 8300000, guid: 7ac9e9613e66b6e408e1a3ad190718cb, type: 3}
+    source: {fileID: 0}
+  - name: lose
+    isLooping: 0
+    volume: 0.3
+    clip: {fileID: 8300000, guid: fbc9930289a49fb41875d98d758ef406, type: 3}
+    source: {fileID: 0}
+  - name: damage
+    isLooping: 0
+    volume: 0.5
+    clip: {fileID: 8300000, guid: e8dba27df1bb1d442a2c4cb0ecac4e28, type: 3}
+    source: {fileID: 0}
+  - name: background
+    isLooping: 1
+    volume: 0.036
+    clip: {fileID: 8300000, guid: 5ca07ecc3fc3f744fb711f93b7e6cc40, type: 3}
+    source: {fileID: 0}
+  - name: click
+    isLooping: 0
+    volume: 0.5
+    clip: {fileID: 8300000, guid: 731459e35ce194c44bbaaa460e34f469, type: 3}
+    source: {fileID: 0}
+  - name: crack
+    isLooping: 0
+    volume: 0.5
+    clip: {fileID: 8300000, guid: 43274e1c15b2b4e4583f5af271cfe2cf, type: 3}
+    source: {fileID: 0}
+  - name: explosion
+    isLooping: 0
+    volume: 0.5
+    clip: {fileID: 8300000, guid: 31344ea25ce8f424c907d669ce9ff581, type: 3}
+    source: {fileID: 0}
 --- !u!1 &2030961020
 GameObject:
   m_ObjectHideFlags: 0

@@ -76,6 +76,21 @@ public class WorldPicker : MonoBehaviour
         WorldChoose.AnimWorlds(this);
     }
 
+    public void PlayCrack()
+    {
+        AudioManager.instance.Play("crack");
+    }
+
+    public void StopCrack()
+    {
+        AudioManager.instance.Stop("crack");
+    }
+
+    public void PlayExplosion()
+    {
+        AudioManager.instance.Play("explosion");
+    }
+
     public bool Locked
     {
         get => locked;
