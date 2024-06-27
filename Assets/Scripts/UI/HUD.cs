@@ -30,6 +30,8 @@ public class HUD : MonoBehaviour
      [SerializeField] private Button nextLevelButton;
      [SerializeField] private Button tryAgainButton;
 
+     [SerializeField] private Image transition;
+
      private Player player;
 
      private void Awake()
@@ -43,6 +45,8 @@ public class HUD : MonoBehaviour
           mainPanelStartPos = mainPanel.transform.position;
           player = FindAnyObjectByType<Player>();
           instance = this;
+
+          transition.DOFade(0, 1);
      }
 
      public void HideScreen()
@@ -102,6 +106,8 @@ public class HUD : MonoBehaviour
           Giroscope.GravityMultiplier = 0;
           Accelerometr.CanDash = false;
           
+          //EventSystem.current.SetSelectedGameObject(null);
+          
           mainPanel.DOJump(mainPanelDestination.position, 4, 4, 1.5f);
      }
 
@@ -114,11 +120,12 @@ public class HUD : MonoBehaviour
           
           BlurManager.renderTexture.Release();
 
-          Core.LoadScene("MainMenu");
+          transition.DOFade(1, 1).onComplete = () => Core.LoadScene("MainMenu");
      }
 
      public void TryAgain()
      {
+          transition.DOFade(1, 1).onComplete = () => transition.DOFade(0, 1);
           PlayerMainBone.AllowCollision = true;
           Giroscope.GravityMultiplier = 1;
           Accelerometr.CanDash = true;
@@ -131,8 +138,6 @@ public class HUD : MonoBehaviour
 
           CameraFollow.FollowY = InitialFollow.FollowY;
           CameraFollow.FollowX = InitialFollow.FollowX;
-
-          EventSystem.current.SetSelectedGameObject(null);
      }
 
      public void LoadNextLevel()
@@ -148,8 +153,6 @@ public class HUD : MonoBehaviour
 
           string toLoad = WorldChoose.chosenWorldName + "_" + LevelPicker.CurrentLevel;
           
-          Debug.Log(toLoad);
-          
-          Core.LoadScene(toLoad);
+          transition.DOFade(1, 1).onComplete = () => Core.LoadScene(toLoad);
      }
 } 

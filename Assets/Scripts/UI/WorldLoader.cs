@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using DG.Tweening;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WorldLoader : MonoBehaviour
 {
@@ -41,6 +43,7 @@ public class WorldLoader : MonoBehaviour
                     {
                         saveString += "w0";
                         world.Locked = true;
+                        world.GetComponent<Image>().DOFade(0.2f, 1);
                     }
 
                     foreach (var level in world.levels)
@@ -56,6 +59,7 @@ public class WorldLoader : MonoBehaviour
 
                         saveString += " " + level.text.text + "0";
                         data[world.worldName].Add(level.text.text, false);
+                        level.GetComponent<Image>().DOFade(0.5f, 1);
                     }
 
                     saveString += "\n";
@@ -113,10 +117,21 @@ public class WorldLoader : MonoBehaviour
                 foreach (var picker in pickers)
                 {
                     picker.Locked = data[picker.worldName]["w"];
+                    
+                    if (picker.Locked)
+                    {
+                        picker.GetComponent<Image>().DOFade(0.2f, 1);
+                    }
+
 
                     for (int j = 0; j < picker.levels.Length; j++)
                     {
                         picker.levels[j].Locked = data[picker.worldName][picker.levels[j].text.text];
+                        
+                        if (picker.levels[j].Locked)
+                        {
+                            picker.levels[j].GetComponent<Image>().DOFade(0.5f, 1);
+                        }
                     }
                 }
             }
@@ -130,9 +145,19 @@ public class WorldLoader : MonoBehaviour
             {
                 picker.Locked = data[picker.worldName]["w"];
 
+                if (picker.Locked)
+                {
+                    picker.GetComponent<Image>().DOFade(0.2f, 1);
+                }
+
                 for (int j = 0; j < picker.levels.Length; j++)
                 {
                     picker.levels[j].Locked = data[picker.worldName][picker.levels[j].text.text];
+
+                    if (picker.levels[j].Locked)
+                    {
+                        picker.levels[j].GetComponent<Image>().DOFade(0.5f, 1);
+                    }
                 }
             }
         }

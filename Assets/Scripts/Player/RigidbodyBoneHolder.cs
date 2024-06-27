@@ -27,7 +27,8 @@ public class RigidbodyBoneHolder : MonoBehaviour
     {
         foreach (var rb in bonerb)
         {
-            rb.constraints = RigidbodyConstraints2D.FreezePosition;
+            if (!value) rb.constraints = RigidbodyConstraints2D.FreezePosition;
+            else rb.constraints = RigidbodyConstraints2D.None;
         }
     }
 
