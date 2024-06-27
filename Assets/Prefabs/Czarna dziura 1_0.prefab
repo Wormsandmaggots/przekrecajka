@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 464615651840194843}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: 0.6603295, w: -0.75097597}
+  m_LocalRotation: {x: -0, y: -0, z: 0.79170626, w: -0.61090195}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -55,7 +55,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cef731a2ecd27024996153d1152d6a2e, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b06ac43cd67c494490262cb22e21b22d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 20
 --- !u!1 &4001769491303783499
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,7 +234,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2045486388837257283, guid: 357c4041d0f90a04391f84a6bb769789, type: 3}
       propertyPath: m_Radius
-      value: 3.1093233
+      value: 2.5751958
       objectReference: {fileID: 0}
     - target: {fileID: 2045486388837257283, guid: 357c4041d0f90a04391f84a6bb769789, type: 3}
       propertyPath: m_Enabled
@@ -242,7 +242,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2045486388837257283, guid: 357c4041d0f90a04391f84a6bb769789, type: 3}
       propertyPath: m_Offset.x
-      value: 0
+      value: -0.043151136
       objectReference: {fileID: 0}
     - target: {fileID: 2045486388837257283, guid: 357c4041d0f90a04391f84a6bb769789, type: 3}
       propertyPath: m_Offset.y
@@ -302,11 +302,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4965412413180545247, guid: 357c4041d0f90a04391f84a6bb769789, type: 3}
       propertyPath: vaccumPower.x
-      value: 30
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 4965412413180545247, guid: 357c4041d0f90a04391f84a6bb769789, type: 3}
       propertyPath: vaccumPower.y
-      value: 30
+      value: 35
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
