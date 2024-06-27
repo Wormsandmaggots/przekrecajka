@@ -2200,7 +2200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e0813841db0ca043a6efa0a3d4284d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pushPower: {x: 1000, y: 1000}
+  pushPower: {x: 500, y: 500}
   maxHealth: 3
   immunityTime: 0.5
   sizeMultiplier: 1.2
