@@ -3879,6 +3879,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Czarna dziura 1_0 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4910901465641673443, guid: c86c0285bc3caf547b3cd53fffe580af, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 5662868688541640850, guid: c86c0285bc3caf547b3cd53fffe580af, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.66
@@ -3926,6 +3930,22 @@ PrefabInstance:
     - target: {fileID: 5822926756724905085, guid: c86c0285bc3caf547b3cd53fffe580af, type: 3}
       propertyPath: m_Offset.x
       value: -0.043151136
+      objectReference: {fileID: 0}
+    - target: {fileID: 7525936955044739108, guid: c86c0285bc3caf547b3cd53fffe580af, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.77074105
+      objectReference: {fileID: 0}
+    - target: {fileID: 7525936955044739108, guid: c86c0285bc3caf547b3cd53fffe580af, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7525936955044739108, guid: c86c0285bc3caf547b3cd53fffe580af, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.6371486
+      objectReference: {fileID: 0}
+    - target: {fileID: 7615137701982396512, guid: c86c0285bc3caf547b3cd53fffe580af, type: 3}
+      propertyPath: speed
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
