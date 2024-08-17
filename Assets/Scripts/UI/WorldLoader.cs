@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class WorldLoader : MonoBehaviour
 {
-    
     //true - locked
     //false - unlocked
     public static Dictionary<string, Dictionary<string, bool>> data = new Dictionary<string, Dictionary<string, bool>>
@@ -15,11 +14,13 @@ public class WorldLoader : MonoBehaviour
     private static string saveString;
     private static WorldPicker[] pickers;
     
+    private static string path = Application.persistentDataPath + "/BlobSave.txt";
+    
     private void Start()
     {
         if (data.Count <= 0)
         {
-            if (true)
+            if (!File.Exists(path))
             {
                 bool first = true;
 
@@ -66,70 +67,69 @@ public class WorldLoader : MonoBehaviour
             }
             else
             {
-
-                // using (StreamReader reader = new StreamReader(path))
-                // {
-                //     string line;
-                //     while ((line = reader.ReadLine()) != null)
-                //     {
-                //         saveString += line + "\n";
-                //     }
-                // }
-
-                // string[] s1 = saveString.Split("\n");
-                // string[] s = new string[s1.Length - 1];
-                //
-                // for (int j = 0; j < s.Length; j++)
-                // {
-                //     s[j] = s1[j];
-                // }
-                //
-                // string[][] ss = new string [s.Length][];
-                //
-                // int i = 0;
-                // foreach (var line in s)
-                // {
-                //     ss[i] = s[i].Split(" ");
-                //     i++;
-                // }
-                //
-                // foreach (var line in ss)
-                // {
-                //     for (int j = 0; j < line.Length; j++)
-                //     {
-                //         if (j == 0)
-                //         {
-                //             data.Add(line[j], new Dictionary<string, bool>());
-                //             continue;
-                //         }
-                //
-                //         data[line[0]].Add(line[j][0].ToString(), line[j][1] == '0');
-                //     }
-                // }
-                //
-                // pickers = FindObjectsByType<WorldPicker>(FindObjectsSortMode.InstanceID);
-                //
-                // int k = 0;
-                // foreach (var picker in pickers)
-                // {
-                //     picker.Locked = data[picker.worldName]["w"];
-                //     
-                //     if (picker.Locked)
-                //     {
-                //         picker.GetComponent<Image>().DOFade(0.2f, 1);
-                //     }
-                //
-                //
-                //     for (int j = 0; j < picker.levels.Length; j++)
-                //     {
-                //         picker.levels[j].Locked = data[picker.worldName][picker.levels[j].text.text];
-                //         
-                //         if (picker.levels[j].Locked)
-                //         {
-                //             picker.levels[j].GetComponent<Image>().DOFade(0.5f, 1);
-                //         }
-                //     }
-                // }
+            
+                using (StreamReader reader = new StreamReader(path))
+                {
+                    string line;
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        saveString += line + "\n";
+                    }
+                }
+            
+                string[] s1 = saveString.Split("\n");
+                string[] s = new string[s1.Length - 1];
+                
+                for (int j = 0; j < s.Length; j++)
+                {
+                    s[j] = s1[j];
+                }
+                
+                string[][] ss = new string [s.Length][];
+                
+                int i = 0;
+                foreach (var line in s)
+                {
+                    ss[i] = s[i].Split(" ");
+                    i++;
+                }
+                
+                foreach (var line in ss)
+                {
+                    for (int j = 0; j < line.Length; j++)
+                    {
+                        if (j == 0)
+                        {
+                            data.Add(line[j], new Dictionary<string, bool>());
+                            continue;
+                        }
+                
+                        data[line[0]].Add(line[j][0].ToString(), line[j][1] == '0');
+                    }
+                }
+                
+                pickers = FindObjectsByType<WorldPicker>(FindObjectsSortMode.InstanceID);
+                
+                int k = 0;
+                foreach (var picker in pickers)
+                {
+                    picker.Locked = data[picker.worldName]["w"];
+                    
+                    if (picker.Locked)
+                    {
+                        picker.GetComponent<Image>().DOFade(0.2f, 1);
+                    }
+                    
+                    for (int j = 0; j < picker.levels.Length; j++)
+                    {
+                        picker.levels[j].Locked = data[picker.worldName][picker.levels[j].text.text];
+                        
+                        if (picker.levels[j].Locked)
+                        {
+                            picker.levels[j].GetComponent<Image>().DOFade(0.5f, 1);
+                        }
+                    }
+                }
             }
         }
         else
@@ -176,7 +176,7 @@ public class WorldLoader : MonoBehaviour
             saveString += "\n";
         }
             
-        //File.WriteAllText(path, saveString);
+        File.WriteAllText(path, saveString);
     }
 
     public static void UpdateSave(string worldName, string level, bool value)

@@ -41,11 +41,11 @@ public class HUD : MonoBehaviour
      [SerializeField] private string[] soundNames;
      [SerializeField] private Transform tutorialDestination;
      private Vector3 tutorialStartPos;
-
-     private Player player;
-
      private bool tutorialShowed = false;
-
+     
+     //[SerializeField] private 
+     private Player player;
+     
      private void Awake()
      {
           Cursor.visible = false;

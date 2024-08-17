@@ -19,8 +19,7 @@ public class LevelPicker : MonoBehaviour
     {
         if (!locked)
         {
-            Core.LoadScene(WorldChoose.chosenWorldName + "_" + text.text);
-            CurrentLevel = text.text;
+            WorldChoose.OnLevelChoose?.Invoke(this);
         }
             
     }

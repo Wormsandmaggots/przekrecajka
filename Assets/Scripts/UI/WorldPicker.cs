@@ -69,6 +69,7 @@ public class WorldPicker : MonoBehaviour
     private void OnMouseDown()
     {
         if (locked) return;
+        if (WorldChoose.isTransitionWorking) return;
         
         cam.transform.DOMove(new Vector3(transform.position.x, transform.position.y, cam.transform.position.z), 2f);
         cam.DOOrthoSize(4f, 2f);

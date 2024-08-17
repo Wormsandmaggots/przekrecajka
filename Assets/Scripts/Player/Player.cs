@@ -33,6 +33,19 @@ public class Player : MonoBehaviour
         // }
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            HUD.instance.ShowWinScreen();
+        }
+
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            HUD.instance.ShowLoseScreen();
+        }
+    }
+
     public void TriggerEnter(Collider2D c2d, PlayerMainBone pmb)
     {
         if (c2d.TryGetComponent(out IDoDamage doDamage))

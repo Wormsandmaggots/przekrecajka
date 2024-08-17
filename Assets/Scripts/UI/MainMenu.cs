@@ -1,6 +1,8 @@
 using System;
+using DG.Tweening;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace UI
 {
@@ -9,6 +11,8 @@ namespace UI
         [SerializeField] private string levelSceneName = "WorldPicker";
         private static bool first = true;
         private float timer = 1.5f;
+        [SerializeField] private Image transition;
+        private bool isTransitionWorking = false;
 
         private void Start()
         {
@@ -20,9 +24,13 @@ namespace UI
             if(first)
                 timer -= Time.deltaTime;
             
-            if (Input.touchCount > 0 && timer <= 0)
+            if (Input.touchCount > 0 && timer <= 0 && !isTransitionWorking)
             {
-                Core.LoadScene(levelSceneName);
+                isTransitionWorking = true;
+                transition.DOFade(1, 2).onComplete = () =>
+                {
+                    Core.LoadScene(levelSceneName);
+                };
             }
         }
     }
